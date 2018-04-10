@@ -5,6 +5,27 @@
 }
 
 
+/* navbar section */
+
+.navbar {
+    margin-bottom: 0;
+    background-color: antiquewhite;
+    z-index: 9999;
+    letter-spacing: 4px;
+}
+
+.navbar li a,
+.navbar .navbar-brand {
+    color: black !important;
+}
+
+.navbar-nav li a:hover,
+.navbar-nav li.active a {
+    color: white !important;
+    background-color: grey!important;
+}
+
+
 /* footer */
 
 .footer {
