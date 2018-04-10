@@ -1,0 +1,18 @@
+/* navbar section */
+.navbar{
+    margin-bottom:0;
+    background-color: antiquewhite;
+    z-index:9999;
+    border:0;
+    font-size:12px !important;
+    letter-spacing:4px;
+    border-radius:0;
+
+}
+.navbar li a, .navbar .navbar-brand {
+    color:black !important;
+}
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color:white !important;
+    background-color:grey!important;
+}
