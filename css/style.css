@@ -17,6 +17,7 @@
 .navbar li a,
 .navbar .navbar-brand {
     color: black !important;
+    transition: all 1s;
 }
 
 .navbar-nav li a:hover,
