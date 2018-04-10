@@ -10,24 +10,21 @@
 
 .navbar {
     margin-bottom: 0;
-    background-color: antiquewhite;
+    background-color: rgb(212, 212, 212, 0.8);
     z-index: 9999;
-    letter-spacing: 2px;
-    font-size:20px;
+    font-size: 1.2em;
+    letter-spacing: 4px;
 }
 
 .navbar li a,
 .navbar .navbar-brand {
-    color: black;
+    color: black !important;
 }
 
 .navbar-nav li a:hover,
 .navbar-nav li.active a {
     color: white !important;
     background-color: grey!important;
-}
-.collapse li{
-    padding:5px
 }
 
 
