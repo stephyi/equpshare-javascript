@@ -12,7 +12,8 @@
     margin-bottom: 0;
     background-color: antiquewhite;
     z-index: 9999;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
+    font-size:20px;
 }
 
 .navbar li a,
@@ -24,6 +25,9 @@
 .navbar-nav li.active a {
     color: white !important;
     background-color: grey!important;
+}
+.collapse li{
+    padding:5px
 }
 
 
