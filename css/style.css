@@ -26,13 +26,6 @@
     color: white !important;
 }
 
-
-/* mission and vision section */
-
-.mission-section-hidden {
-    display: none;
-}
-
 .mission-section {
     background-color: rgba(8, 8, 8, 0.582);
     padding-top: 8%;
