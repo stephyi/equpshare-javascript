@@ -147,16 +147,14 @@
             let missionPosition = mission.position().top;
             $(window).scroll(function() {
                 let windowPosition = $(window).scrollTop();
-                if (windowPosition >= missionPosition) {
+                if (windowPosition == missionPosition) {
                     mission.removeClass("mission-section-hidden");
                     mission.addClass("slideInRight");
-                } else {
-                    mission.removeClass("slideInRight")
-                    mission.addClass("mission-section-hidden");
                 }
             });
         });
     </script>
+
 </body>
 
 </html>
