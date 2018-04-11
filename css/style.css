@@ -28,6 +28,28 @@
 }
 
 
+/* mission and vision section */
+
+.mission-section-hidden {
+    display: none;
+}
+
+.mission-section {
+    background-color: rgba(8, 8, 8, 0.582);
+    padding-top: 8%;
+    padding-bottom: 8%;
+}
+
+.mission-section p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.mission.content {
+    padding: 2%;
+    background: #fff;
+}
+
+
 /* footer */
 
 .footer {
@@ -41,7 +63,7 @@
 
 .footer a:hover {
     text-decoration: none;
-    color: rgb(171, 194, 194);
+    color: rgb(185, 230, 230);
 }
 
 .top-footer {
