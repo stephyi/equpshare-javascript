@@ -24,14 +24,6 @@
 .navbar-nav li a:hover,
 .navbar-nav li.active a {
     color: white !important;
-
-}
-
-
-/* mission and vision section */
-
-.mission-section-hidden {
-    display: none;
 }
 
 .mission-section {
@@ -48,8 +40,6 @@
     padding: 2%;
     background: #fff;
 }
-
-
 
 
 /* footer */
