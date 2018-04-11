@@ -23,11 +23,13 @@
 .navbar-nav li a:hover,
 .navbar-nav li.active a {
     color: white !important;
-    background-color: grey!important;
+
 }
 .collapse li{
     padding:5px
 }
+
+
 
 
 /* footer */
