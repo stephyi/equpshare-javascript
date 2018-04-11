@@ -5,14 +5,6 @@
     transition: all 1.3s;
 }
 
-.carousel-inner {
-    max-height: 649px !important;
-}
-
-.carousel-caption {
-    top: 37%;
-}
-
 
 /* navbar section */
 
@@ -47,6 +39,22 @@
 .mission.content {
     padding: 2%;
     background: #fff;
+}
+
+
+/* carousel */
+
+.carousel-caption {
+    top: 50%;
+    bottom: auto;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+}
+
+.carousel-inner>.carousel-item>.img-fluid {
+    height: 650px;
+    width: 100%;
 }
 
 
@@ -110,17 +118,4 @@
 .fa-facebook:hover,
 .fa-google-plus:hover {
     opacity: 0.8;
-}
-
-.carousel-caption {
-    top: 50%;
-    bottom: auto;
-    -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-}
-
-.carousel-inner>.carousel-item>.img-fluid {
-    height: 650px;
-    width: 100%;
 }
