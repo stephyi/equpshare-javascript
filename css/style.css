@@ -24,7 +24,7 @@
 .navbar-nav li a:hover,
 .navbar-nav li.active a {
     color: white !important;
-    background-color: grey!important;
+
 }
 
 
@@ -48,6 +48,8 @@
     padding: 2%;
     background: #fff;
 }
+
+
 
 
 /* footer */
