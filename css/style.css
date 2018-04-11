@@ -5,6 +5,14 @@
     transition: all 1.3s;
 }
 
+.carousel-inner {
+    max-height: 649px !important;
+}
+
+.carousel-caption {
+    top: 37%;
+}
+
 
 /* navbar section */
 
