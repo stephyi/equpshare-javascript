@@ -45,7 +45,7 @@
 /* carousel */
 
 .carousel-caption {
-    top: 50%;
+    top: 62%;
     bottom: auto;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
