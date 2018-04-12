@@ -1,0 +1,56 @@
+/* Must include Font Awesome (here: https://fortawesome.github.io/Font-Awesome/get-started/) for icons to show up */
+
+.slick-prev,
+.slick-next {
+    font-size: 2px;
+    position: absolute;
+    top: 27%;
+    color: #0f0f0f;
+    border: 0;
+    background: none;
+    z-index: 988379489483;
+}
+
+.slick-slider span {
+    font-size: 3em;
+    font-weight: lighter;
+}
+
+.slick-prev {
+    left: -9px;
+}
+
+.slick-prev:after {
+    content: "\f104";
+    font: 40px/1 'FontAwesome';
+}
+
+.slick-next {
+    right: -7px;
+    text-align: right;
+}
+
+.slick-next:after {
+    content: "\f105";
+    font: 40px/1 'FontAwesome';
+}
+
+.slick-prev:hover:after,
+.slick-next:hover:after {
+    color: #7e7e7e;
+}
+
+#slick-slide-control01,
+#slick-slide-control00,
+#slick-slide-control02,
+#slick-slide-control03,
+#slick-slide-control04,
+#slick-slide-control05 {
+    display: none!important;
+}
+
+.client-name {
+    font-size: 0.8em!important;
+    font-weight: 100;
+    padding-left: 20px;
+}
