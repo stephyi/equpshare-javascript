@@ -66,10 +66,6 @@
     margin: 5px 0 0 0;
 }
 
-.row {
-    margin: 0 0 10px 0;
-}
-
 .service-sec>div>a>img {
     height: 400px !important;
     width: 300px !important;
@@ -99,7 +95,8 @@
 
 .middle-footer {
     background-color: rgb(46, 46, 46);
-    padding: 2%;
+    padding: 1%;
+    height: 390px;
 }
 
 .middle-footer * {
@@ -108,7 +105,8 @@
 
 .bottom-footer {
     background-color: rgb(39, 39, 39);
-    padding: 1.7%;
+    padding: 1.5%;
+    height: 90px;
 }
 
 

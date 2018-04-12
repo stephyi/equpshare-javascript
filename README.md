@@ -1,1 +1,0 @@
-# equipshare-javascript
