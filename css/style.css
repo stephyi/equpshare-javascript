@@ -58,12 +58,20 @@
 }
 
 
-/*image -grid*/
+/*image -grid*
 
 .service-sec {
     padding-top: 10%;
     padding-bottom: 4%;
     margin: 5px 0 0 0;
+
+@media (min-width: 992px) {
+    body {
+      padding-top: 56px;
+    }
+  }
+.service-sec{
+    margin:10px 0 0 0;
 }
 
 .row {
@@ -99,7 +107,8 @@
 
 .middle-footer {
     background-color: rgb(46, 46, 46);
-    padding: 2%;
+    padding: 1%;
+    height:390px;
 }
 
 .middle-footer * {
@@ -108,7 +117,8 @@
 
 .bottom-footer {
     background-color: rgb(39, 39, 39);
-    padding: 1.7%;
+    padding: 1.5%;
+    height:90px;
 }
 
 

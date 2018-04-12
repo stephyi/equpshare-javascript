@@ -32,7 +32,7 @@
 
 </head>
 
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
 
     <!-- Navbar Section-->
     <nav class="navbar  navbar-light navbar-expand-md fixed-top">
@@ -43,10 +43,10 @@
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="#" class="nav-link">HOME</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">ABOUT US</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">SERVICES</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">CONTACT</a></li>
+                <li class="nav-item"><a href="#carouselExampleIndicators" class="nav-link">HOME</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">ABOUT US</a></li>
+                <li class="nav-item"><a href="#services" class="nav-link">SERVICES</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">CONTACT</a></li>
             </ul>
 
         </div>
@@ -54,7 +54,7 @@
     <!-- End of Nav section-->
 
     <!-- Slideshow section-->
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id= "carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -102,7 +102,7 @@
     </div>
 
     <!--mission and Vision section -->
-    <section class="mission-section">
+    <section class="mission-section"id="about">
         <div class="row">
             <div class="col-md-1 "></div>
             <div class="col-md-11 ">
@@ -146,6 +146,31 @@
 
             </div>
             <div class="col-md-4"></div>
+   
+  
+ <!-- Services section-->
+ <div class="service-sec container text-center"id="services">
+    <h2>Services Offered</h2>
+    <p>Choose an option to learn more or request about a service. </p>
+    <div class="row text-center ">
+        <div class="col-lg-3 col-md-4 col-xs-6">
+            <a href="#" class="d-block mb-3" >
+                <img class="img-fluid img-thumbnail" src="images\adult-auto-automobile-558375.jpg" alt="">
+            </a>
+            <button class="button btn btn-outline-secondary ">Buy Equipments</button>
+         </div>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+            <a href="#" class="d-block mb-3" >
+                <img class="img-fluid img-thumbnail" src="images\cogs-gears-machine-159275.jpg"  alt="" >
+            </a>
+            <button class="button btn btn-outline-secondary ">Get Parts</button>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+            <a href="#" class="d-block mb-3">
+                <img class="img-fluid img-thumbnail" src="images\black-and-white-blur-chrome-209666.jpg"  alt="">
+            </a>
+            <button class="button btn btn-outline-secondary">Request Service </button>
+
         </div>
         <div class="row text-center ">
             <div class="col-lg-3 col-md-4 col-xs-6">
@@ -242,7 +267,7 @@
     <!--testimonials section-->
 
     <!--footer section-->
-    <footer class="footer ">
+    <footer class="footer "id="contact">
         <div class="top-footer ">
             <h2 class="text-center ">
                 Equipshare
@@ -254,9 +279,9 @@
                 <h3 class="text-uppercase ">navigation</h3>
                 <ul>
                     <li><a href="# ">Home</a></li>
-                    <li><a href="# ">Services</a></li>
-                    <li><a href="# ">About us</a></li>
-                    <li><a href="# ">Contacts</a></li>
+                    <li><a href="#services ">Services</a></li>
+                    <li><a href="#about ">About us</a></li>
+                    <li><a href="#contact ">Contacts</a></li>
                     <li><a href="# ">Login</a></li>
 
                 </ul>
@@ -296,7 +321,6 @@
             </div>
 
         </div>
-
         <div class="bottom-footer text-center ">
             <p>&copy;2018 Equipshare. All rights reserved.</p>
         </div>
