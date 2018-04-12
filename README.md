@@ -1,1 +1,1 @@
-# equpshare-javascript
+# equipshare-javascript
