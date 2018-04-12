@@ -56,8 +56,12 @@
     height: 650px;
     width: 100%;
 }
-
-
+/*image -grid*/
+@media screen and (max-width: 500px) {
+    .column {
+      width: 100%;
+    }
+  }
 /* footer */
 
 .footer {
