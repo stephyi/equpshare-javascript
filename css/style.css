@@ -68,9 +68,9 @@
 .row{
     margin:0 0 10px 0;
 }
-.img-fluid{
-    height:400px;
-    width:300px;
+.service-sec > div >a > img{
+    height:400px !important;
+    width:300px !important;
 }
 
 /* footer */
