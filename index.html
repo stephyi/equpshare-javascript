@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 
 <head>
     <meta charset="UTF-8">
@@ -29,28 +29,32 @@
     <link rel="stylesheet" type="text/css" href="slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
 
+    <!--header css and scripts-->
+    <link rel="stylesheet" type="text/css" href="css/normalizeHeader.css" />
+    <link rel="stylesheet" type="text/css" href="css/Header.css" />
+    <script src="js/header.js"></script>
+
 
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
     <!-- Navbar Section-->
-    <nav class="navbar  navbar-light navbar-expand-md fixed-top">
-        <a class="navbar-brand" href="#">Equipshare</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="#carouselExampleIndicators" class="nav-link">HOME</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link">ABOUT US</a></li>
-                <li class="nav-item"><a href="#services" class="nav-link">SERVICES</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">CONTACT</a></li>
-            </ul>
-
+    <header id="ha-header" class="ha-header ha-header-hide">
+        <div class="ha-header-perspective">
+            <div class="ha-header-front">
+                <h1><span>Equipshare</span></h1>
+                <nav>
+                    <a href="#">Home</a>
+                    <a href="#">Services</a>
+                    <a href="#">About us</a>
+                    <a href="#">Contact us</a>
+                </nav>
+            </div>
+            <div class="ha-header-bottom">
+            </div>
         </div>
-    </nav>
+    </header>
     <!-- End of Nav section-->
 
     <!-- Slideshow section-->
@@ -102,7 +106,7 @@
     </div>
 
     <!--mission and Vision section -->
-    <section class="mission-section" id="about">
+    <section class="mission-section ha-waypoint" data-animate-down="ha-header-small" data-animate-up="ha-header-large" id="about">
         <div class="row">
             <div class="col-md-1 "></div>
             <div class="col-md-11 ">
@@ -307,6 +311,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js "></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js "></script>
 
+    <!--header scripts-->
+    <script src="js/waypoints.min.js"></script>
+    <script>
+        var $head = $('#ha-header');
+        $('.ha-waypoint').each(function(i) {
+            var $el = $(this),
+                animClassDown = $el.data('animateDown'),
+                animClassUp = $el.data('animateUp');
+
+            $el.waypoint(function(direction) {
+                if (direction === 'down' && animClassDown) {
+                    $head.attr('class', 'ha-header ' + animClassDown);
+                } else if (direction === 'up' && animClassUp) {
+                    $head.attr('class', 'ha-header ' + animClassUp);
+                }
+            }, {
+                offset: '100%'
+            });
+        });
+    </script>
 
 
     <!--script to animate the mission section
