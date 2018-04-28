@@ -4,14 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="">
+    <meta name="author" content="Equipshare">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>Equipshare</title>
+    <title>Home | Equipshare</title>
 
     <!-- css files -->
     <!--main css file-->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/style-dustu.css" />
+    <link rel="stylesheet" type="text/css" href="/pater.css" />
 
     <!--animate css, for animations-->
     <link rel="stylesheet" href="css/animate.css">
@@ -34,7 +38,6 @@
     <link rel="stylesheet" type="text/css" href="css/Header.css" />
     <script src="js/header.js"></script>
 
-
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -45,13 +48,29 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="#" class="nav-link text-light">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link text-light">about us</a></li>
-                <li class="nav-item"><a href="services/services.php" class="nav-link text-light">services</a></li>
-                <li class="nav-item"><a href="#" class="nav-link text-light">contacts</a></li>
+            <ul class="navbar-nav ml-auto menu--dustu">
+                <li class="nav-item active">
+                    <a href="#" class="menu__item nav-link text-light">
+                        <span class="menu__item-name active">Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about-us.html" class="menu__item nav-link text-light">
+                        <span class="menu__item-name">about us</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="services/services.php" class="menu__item nav-link text-light">
+                        <span class="menu__item-name">services</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="contacts.html" class="menu__item nav-link text-light">
+                        <span class="menu__item-name">contact us</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -117,13 +136,18 @@
                         <div class="col-md-5">
                             <h4 class="text-uppercase ">our mission</h4>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                                non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
                             </p>
                         </div>
                         <div class="col-md-5 ">
                             <h4 class="text-uppercase ">our vision</h4>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                                totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae
+                                vitae dicta sunt explicabo.</p>
                         </div>
                         <div class="col-md-1 "></div>
 
@@ -252,29 +276,46 @@
             <div class="col-md-4 ">
                 <h3 class="text-uppercase ">navigation</h3>
                 <ul>
-                    <li><a href="# ">Home</a></li>
-                    <li><a href="#services ">Services</a></li>
-                    <li><a href="#about ">About us</a></li>
-                    <li><a href="#contact ">Contacts</a></li>
-                    <li><a href="# ">Login</a></li>
+                    <li>
+                        <a href="# ">Home</a>
+                    </li>
+                    <li>
+                        <a href="#services ">Services</a>
+                    </li>
+                    <li>
+                        <a href="#about ">About us</a>
+                    </li>
+                    <li>
+                        <a href="#contact ">Contacts</a>
+                    </li>
+                    <li>
+                        <a href="# ">Login</a>
+                    </li>
 
                 </ul>
             </div>
 
             <div class="col-md-3 ">
                 <h3 class="text-uppercase ">subscribe</h3>
-                <form class="form ">
-                    <input class="form-control " type="email " placeholder="subscribe to our newsletter " required>
+                <form class="form" method="POST" action="subscription.php">
+                    <input class="form-control " type="email" name="email" placeholder="subscribe to our newsletter " required>
                     <br />
-                    <input class="btn btn-primary " type="submit " value="subscribe ">
-                    <br />
-                    <br />
-                    <h4 class="text-uppercase ">follow us:</h4>
-                    <a href="# "><i class="fa fa-twitter "></i></a>
-                    <a href="# "><i class="fa fa-facebook "></i></a>
-                    <a href="# "><i class="fa fa-google-plus "></i></a>
-
+                    <input class="btn btn-primary" type="submit" value="subscribe">
                 </form>
+
+                <br />
+                <br />
+                <h4 class="text-uppercase ">follow us:</h4>
+                <a href="# ">
+                    <i class="fa fa-twitter "></i>
+                </a>
+                <a href="# ">
+                    <i class="fa fa-facebook "></i>
+                </a>
+                <a href="# ">
+                    <i class="fa fa-google-plus "></i>
+                </a>
+
             </div>
 
             <div class="col-md-1 "></div>
@@ -286,11 +327,15 @@
                     <li>phone: 071234789038</li>
                 </ul>
 
-                <h4 class="text-uppercase ">mission us</h4>
+                <h4 class="text-uppercase">about us</h4>
 
-                <li><a href="# ">contacts</a></li>
-                <li><a href="# ">privacy policy</a></li>
-                </ul>
+                <li>
+                    <a href="contacts.html">contacts</a>
+                </li>
+                <li>
+                    <a href="# ">privacy policy</a>
+                </li>
+
 
             </div>
         </div>
@@ -306,30 +351,9 @@
     <!--slick javascript-->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.min.js"></script>
     <script type="text/javascript" src="slick/slick.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/testimonials.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js "></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js "></script>
-
-    <!--header scripts-->
-    <script src="js/waypoints.min.js"></script>
-    <script>
-        var $head = $('#ha-header');
-        $('.ha-waypoint').each(function(i) {
-            var $el = $(this),
-                animClassDown = $el.data('animateDown'),
-                animClassUp = $el.data('animateUp');
-
-            $el.waypoint(function(direction) {
-                if (direction === 'down' && animClassDown) {
-                    $head.attr('class', 'ha-header ' + animClassDown);
-                } else if (direction === 'up' && animClassUp) {
-                    $head.attr('class', 'ha-header ' + animClassUp);
-                }
-            }, {
-                offset: '100%'
-            });
-        });
-    </script>
 
 
     <!--script to animate the mission section
