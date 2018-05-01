@@ -196,7 +196,7 @@ if (!empty($_GET["action"])) {
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="contact.html" class="menu__item nav-link text-light">
+                    <a href="../contact.html" class="menu__item nav-link text-light">
                         <span class="menu__item-name">contact us</span>
                     </a>
                 </li>
