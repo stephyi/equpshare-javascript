@@ -181,22 +181,22 @@ if (!empty($_GET["action"])) {
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto menu--dustu">
                 <li class="nav-item active">
-                    <a href="#" class="menu__item nav-link text-light">
+                    <a href="../index.html" class="menu__item nav-link text-light">
                         <span class="menu__item-name">Home</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="about-us.html" class="menu__item nav-link text-light">
+                    <a href="../aboutpage.html" class="menu__item nav-link text-light">
                         <span class="menu__item-name">about us</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="services/services.php" class="menu__item nav-link text-light">
+                    <a href="#" class="menu__item nav-link text-light">
                         <span class="menu__item-name active">services</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="contacts.html" class="menu__item nav-link text-light">
+                    <a href="contact.html" class="menu__item nav-link text-light">
                         <span class="menu__item-name">contact us</span>
                     </a>
                 </li>
