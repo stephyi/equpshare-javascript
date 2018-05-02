@@ -48,7 +48,6 @@ body, html {
 /*---------------------------------------------*/
 a {
 	font-family: Poppins-Regular;
-	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
 	margin: 0px;
@@ -188,6 +187,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
+  padding-top: 50pt;
   background: #f2f2f2;
   margin-top:70px;
   margin-bottom:30px;
@@ -274,6 +274,7 @@ iframe {
   width: 100%;
   position: relative;
   border: 1px solid #e6e6e6;
+  overflow-y: hidden;
 }
 
 .rs1-wrap-input100,

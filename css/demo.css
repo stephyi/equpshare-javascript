@@ -1,148 +1,141 @@
-
 .demo-dustu {
-	--color-text: #fff;
-	--color-background: #161616;
-	--color-link: #565656;
-	--color-link-hover: #fff;
+  --color-text: #fff;
+  --color-background: #161616;
+  --color-link: #565656;
+  --color-link-hover: #fff;
 }
-
 
 /* Fade effect */
 .js body {
-	opacity: 0;
-	transition: opacity 0.3s;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 .js body.render {
-	opacity: 1;
+  opacity: 1;
 }
 
 a {
-	text-decoration: none;
-	color: #5d93d8;
-	color: var(--color-link);
-	outline: none;
+  text-decoration: none;
+  color: #5d93d8;
+  color: var(--color-link);
+  outline: none;
 }
 
 a:hover,
 a:focus {
-	color: #423c2b;
-	color: var(--color-link-hover);
-	outline: none;
+  color: #423c2b;
+  color: var(--color-link-hover);
+  outline: none;
 }
 
 .hidden {
-	position: absolute;
-	overflow: hidden;
-	width: 0;
-	height: 0;
-	pointer-events: none;
+  position: absolute;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  pointer-events: none;
 }
 
 /* Icons */
 .icon {
-	display: block;
-	width: 1.5em;
-	height: 1.5em;
-	margin: 0 auto;
-	fill: currentColor;
-}
-
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0 auto;
+  fill: currentColor;
 }
 
 .menu__item {
-	line-height: 1;
-	position: relative;
-	display: block;
-	margin: 1em 0;
-	outline: none;
+  line-height: 1;
+  position: relative;
+  display: block;
+  margin: 1em 0;
+  outline: none;
 }
 
 .menu__item-name,
 .menu__item-label {
-	position: relative;
-	display: inline-block;
-}
-
-.menu__item-name {
-	font-size: 1.25em;
+  position: relative;
+  display: inline-block;
+  overflow-y: hidden;
 }
 
 .menu__item-label {
-	margin: 0 0 0 0.5em;
+  margin: 0 0 0 0.5em;
 }
 
 @media screen and (min-width: 50em) {
-	.icon--keyboard {
-		position: absolute;
-		right: 0.55em;
-		bottom: -30%;
-		display: block;
-		width: 54px;
-		height: 46px;
-		fill: var(--color-link);
-	}
-	.demos {
-		display: flex;
-		padding-right: 80px;
+  .icon--keyboard {
+    position: absolute;
+    right: 0.55em;
+    bottom: -30%;
+    display: block;
+    width: 54px;
+    height: 46px;
+    fill: var(--color-link);
+  }
+  .demos {
+    display: flex;
+    padding-right: 80px;
 
-		justify-self: end;
-	}
-	.demo {
-		display: block;
-		width: 17px;
-		height: 17px;
-		margin: 0 5px 0 0;
-		border: 2px solid;
-		border-radius: 2px;
-	}
-	a.demo--current {
-		background: currentColor;
-	}
-	.demo span {
-		position: absolute;
-		top: -0.2em;
-		right: 100%;
-		display: none;
-		margin: 0 1em 0 0;
-	}
-	.demo--current span {
-		display: block;
-	}
+    justify-self: end;
+  }
+  .demo {
+    display: block;
+    width: 17px;
+    height: 17px;
+    margin: 0 5px 0 0;
+    border: 2px solid;
+    border-radius: 2px;
+  }
+  a.demo--current {
+    background: currentColor;
+  }
+  .demo span {
+    position: absolute;
+    top: -0.2em;
+    right: 100%;
+    display: none;
+    margin: 0 1em 0 0;
+  }
+  .demo--current span {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 50em) {
-	html,
-	body {
-		overflow-x: hidden;
-		width: 100vw;
-		height: 100%;
-	}
-	.content {
-		height: auto;
-		min-height: 0;
-		padding-bottom: 10em;
-	}
-	.content--fixed {
-		position: relative;
-		z-index: 1000;
-		display: block;
-		padding: 0.85em;
-	}
-	.codrops-header {
-		flex-direction: column;
-		align-items: center;
-	}
-	.codrops-header__title {
-		font-weight: bold;
-		padding-bottom: 0.25em;
-		text-align: center;
-	}
-	.github {
-		display: block;
-		margin: 1em auto;
-	}
-	.codrops-links {
-		margin: 0;
-	}
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100%;
+  }
+  .content {
+    height: auto;
+    min-height: 0;
+    padding-bottom: 10em;
+  }
+  .content--fixed {
+    position: relative;
+    z-index: 1000;
+    display: block;
+    padding: 0.85em;
+  }
+  .codrops-header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .codrops-header__title {
+    font-weight: bold;
+    padding-bottom: 0.25em;
+    text-align: center;
+  }
+  .github {
+    display: block;
+    margin: 1em auto;
+  }
+  .codrops-links {
+    margin: 0;
+  }
 }

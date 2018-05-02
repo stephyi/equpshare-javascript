@@ -44,17 +44,18 @@ body {
  -webkit-text-size-adjust: none; }
 
 /* Typography */
-html {
-  font-size: 13pt; }
+
   @media screen and (max-width: 1680px) {
     html {
       font-size: 11pt; } }
   @media screen and (max-width: 980px) {
     html {
-      font-size: 12pt; } }
+      font-size: 12pt; } 
+    }
   @media screen and (max-width: 480px) {
     html {
-      font-size: 11pt; } }
+      font-size: 11pt; } 
+    }
 
 body {
   background-color: #ffffff;
@@ -114,7 +115,7 @@ h3 {
 header > a {
   color:black; }
 
- }
+ 
 
 h1, h2, h3, h4, h5, h6 {
   color: #555555; }
@@ -276,6 +277,7 @@ p{
 
 /* Icon */
 .icon {
+  overflow-y:hidden;
   text-decoration: none;
   border-bottom: none;
   position: relative; }

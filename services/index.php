@@ -137,13 +137,13 @@ if (!empty($_GET["action"])) {
 
     <!-- css files -->
     <!--main css file-->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="css/demo.css" />
-    <link rel="stylesheet" type="text/css" href="css/style-dustu.css" />
-    <link rel="stylesheet" type="text/css" href="/pater.css" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style-dustu.css" />
+    <link rel="stylesheet" type="text/css" href="../css/pater.css" />
     <!--animate css, for animations-->
-    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="../css/animate.css">
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -155,10 +155,10 @@ if (!empty($_GET["action"])) {
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
     <!--slick css for testimonials-->
-    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="../slick/slick-theme.css" />
 
-   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="../css/style.css">
 
 	<style>
 		.container {
@@ -172,7 +172,7 @@ if (!empty($_GET["action"])) {
 <body>
 
 	<!-- Navbar Section-->
-    <nav class="navbar navbar-expand-sm bg-dark fixed-top text-uppercase navbar-dark">
+    <nav class="navbar navbar-expand-md bg-dark fixed-top text-uppercase navbar-dark">
         <a href="#" class="navbar-brand text-light">Equipshare</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -181,22 +181,22 @@ if (!empty($_GET["action"])) {
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto menu--dustu">
                 <li class="nav-item active">
-                    <a href="#" class="menu__item nav-link text-light">
+                    <a href="../index.html" class="menu__item nav-link text-light">
                         <span class="menu__item-name">Home</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="about-us.html" class="menu__item nav-link text-light">
+                    <a href="../aboutpage.html" class="menu__item nav-link text-light">
                         <span class="menu__item-name">about us</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="services/services.php" class="menu__item nav-link text-light">
+                    <a href="#" class="menu__item nav-link text-light">
                         <span class="menu__item-name active">services</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="contacts.html" class="menu__item nav-link text-light">
+                    <a href="../contact.html" class="menu__item nav-link text-light">
                         <span class="menu__item-name">contact us</span>
                     </a>
                 </li>
@@ -240,7 +240,7 @@ if (!empty($_GET["action"])) {
 					</div>
 					<div class="card-body">
 						<img src="https://images.pexels.com/photos/129544/pexels-photo-129544.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-thumbnail" alt="services">	
-<p><br> We’re always refining our systems and technology to be better, so you experience minimal downtime. <br> On-call service gets your equipment up and running faster.</p>
+							<p><br> We’re always refining our systems and technology to be better, so you experience minimal downtime. <br> On-call service gets your equipment up and running faster.</p>
 					</div>
 					<div class="card-footer">
 
@@ -271,15 +271,16 @@ if (!empty($_GET["action"])) {
 				 				<img src="<?php echo $product_array[$key]["image"]; ?>" class="img-thumbnail">
 							</div>
 
-							<div>
-								<strong><?php echo $product_array[$key]["name"]; ?></strong>
+							<div class="row">
+								<div class="col-md-2"></div>
+								<div class="col-md-8">
+							<a href="<?php echo $product_array[$key]["link"]; ?>" class="btn btn-outline-secondary"><strong><?php echo $product_array[$key]["name"]; ?></strong></a>
+
+								</div>
+								<div class="col-md-2"></div>
+
 							</div>
 
-							<div class="product-price"><?php echo "$" . $product_array[$key]["price"]; ?></div>
-
-							<div>
-								<input type="text" name="quantity" value="1" size="2" /><input type="submit" value="Add to cart" class="btnAddAction" />
-							</div>
 					
 				</form>
 
@@ -294,13 +295,14 @@ if (!empty($_GET["action"])) {
 
 
 		<br>
-		<div class="container d-flex justify-content-around">
+		<div class="container d-flex justify-content-around ">
 
 			<?php
 		$product_array2 = $db_handle->runQuery("SELECT * FROM tblproduct2 ORDER BY id ASC");
 		if (!empty($product_array2)) {
 			foreach ($product_array2 as $key => $value) {
 				?>
+
 				<form method="post" action="index.php?action=add&code=<?php echo $product_array2[$key]["code"]; ?>">
 					<table>
 						<tr>
@@ -308,15 +310,17 @@ if (!empty($_GET["action"])) {
 								<img src="<?php echo $product_array2[$key]["image"]; ?>" class="img-thumbnail">
 							</div>
 
-							<div>
-								<strong><?php echo $product_array2[$key]["name"]; ?></strong>
+							<div class="row">
+								<div class="col-md-3"></div>
+								<div class="col-md-6">
+									<a href="<?php echo $product_array2[$key]["link"]; ?>" class="btn btn-outline-secondary"><strong><?php echo $product_array2[$key]["name"]; ?></strong></a>
+
+								</div>
+								<div class="col-md-3"></div>
+
 							</div>
 
-							<div class="product-price"><?php echo "$" . $product_array2[$key]["price"]; ?></div>
 
-							<div>
-								<input type="text" name="quantity" value="1" size="2" /><input type="submit" value="Add to cart" class="btnAddAction" />
-							</div>
 						</tr>
 					</table>
 					
@@ -328,6 +332,7 @@ if (!empty($_GET["action"])) {
 }
 ?>
 					</div>
+					<br />
 
 <div class="container d-flex justify-content-around">
 			<?php
@@ -335,6 +340,7 @@ if (!empty($_GET["action"])) {
 		if (!empty($product_array3)) {
 			foreach ($product_array3 as $key => $value) {
 				?>
+				
 
 				<form method="post" action="index.php?action=add&code=<?php echo $product_array3[$key]["code"]; ?>">
 					<table>
@@ -342,16 +348,19 @@ if (!empty($_GET["action"])) {
 							<div class="product-image">
 								<img src="<?php echo $product_array3[$key]["image"]; ?>" class="img-thumbnail">
 							</div>
+							<div class="row">
+								<div class="col-md-2"></div>
+								<div class="col-md-8">
+									<a href="<?php echo $product_array3[$key]["link"]; ?>" class="btn btn-outline-secondary"><strong><?php echo $product_array3[$key]["name"]; ?></strong></a>
 
-							<div>
-								<strong><?php echo $product_array3[$key]["name"]; ?></strong>
+								</div>
+								<div class="col-md-2"></div>
+
 							</div>
 
-							<div class="product-price"><?php echo "$" . $product_array3[$key]["price"]; ?></div>
+							
 
-							<div>
-								<input type="text" name="quantity" value="1" size="2" /><input type="submit" value="Add to cart" class="btnAddAction" />
-							</div>
+							
 						</tr>
 					</table>
 					
@@ -369,6 +378,7 @@ if (!empty($_GET["action"])) {
 	<div class="hr"></div>
 	<br>
 
+<!--
 	<div id="shopping-cart">
 
 			<div class="">
@@ -390,9 +400,9 @@ if (!empty($_GET["action"])) {
 		<div class="col-md-10">
 
 		<?php
-	if (isset($_SESSION["cart_item"])) {
-		$item_total = 0;
-		?>	
+//	if (isset($_SESSION["cart_item"])) {
+//		$item_total = 0;
+	?>	
 
 		<table class="table table-striped table-hover">
 			<tbody>
@@ -407,8 +417,8 @@ if (!empty($_GET["action"])) {
 				</tr>
 
 				<?php	
-			foreach ($_SESSION["cart_item"] as $item) {
-				?>
+			// foreach ($_SESSION["cart_item"] as $item) {
+			?>
 								<tr>
 								<td style="text-align:left;border-bottom:#F0F0F0 1px solid;"><strong><?php echo $item["name"]; ?></strong></td>
 								<td style="text-align:left;border-bottom:#F0F0F0 1px solid;"><?php echo $item["code"]; ?></td>
@@ -417,14 +427,14 @@ if (!empty($_GET["action"])) {
 								<td style="text-align:center;border-bottom:#F0F0F0 1px solid;"><a href="index.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction">Remove Item</a></td>
 								</tr>
 				<?php
-			$item_total += ($item["price"] * ($item["quantity"] / 3));
-		}
-		?>
+			// $item_total += ($item["price"] * ($item["quantity"] / 3));
+	//	}
+			?>
 
 				<tr>
 					<td colspan="5" align=right>
 						<strong>Total:</strong> 
-						<?php echo "$" . $item_total; ?>
+						<?php //echo "$" . $item_total; ?>
 					</td>
 				</tr>
 			</tbody>
@@ -432,8 +442,8 @@ if (!empty($_GET["action"])) {
 
 		<?php
 
-}
-?>
+// }
+	?>
 		</div>
 		<div class="col-md-1"></div>
 		</div>
@@ -457,7 +467,7 @@ if (!empty($_GET["action"])) {
 
 	<br>
 	
-
+-->
 
 <!--footer section-->
 <footer class="footer" id="contact">
