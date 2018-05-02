@@ -4,6 +4,7 @@
   overflow-x: hidden;
   transition: all 1.3s;
 }
+
 /*navbar */
 
 .navbar {
@@ -46,7 +47,7 @@
   transform: translate(0, -50%);
 }
 
-.carousel-inner > .carousel-item > .img-fluid {
+.carousel-inner>.carousel-item>.img-fluid {
   height: 650px;
   width: 100%;
 }
@@ -78,10 +79,11 @@
   margin: 5px 0 0 0;
 }
 
-.service-sec > div > a > img {
+.service-sec>div>a>img {
   height: 400px !important;
   width: 300px !important;
 }
+
 button {
   border-radius: 10px;
 }
@@ -149,6 +151,7 @@ button {
 }
 
 /*story section*/
+
 .bg-grey {
   background-color: #f6f6f6;
 }
@@ -163,4 +166,87 @@ button {
 
 #footer {
   box-sizing: border-box;
+}
+
+.login-html {
+  background-color: rgb(175, 175, 175);
+}
+
+.login-h1,
+.modal-title {
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(102, 98, 98);
+  position: relative;
+}
+
+.login-body {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.2em;
+  overflow-x: hidden;
+}
+
+.card {
+  margin-top: 20%;
+}
+
+.card-footer {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+::placeholder {
+  color: rgb(182, 182, 182);
+  font-size: 1.05em;
+  letter-spacing: 1px;
+  font-style: oblique;
+}
+
+.login-a {
+  font-style: oblique;
+  color: rgb(202, 199, 199);
+  font-size: 0.7em;
+  margin-left: 60px;
+  outline: none;
+  position: relative;
+  text-decoration: none;
+}
+
+.login-a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(57, 188, 231);
+  transform-origin: bottom right;
+  transition: transform 0.4s ease-out;
+}
+
+.login-a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.login-a:hover {
+  text-decoration: none;
+}
+
+.sign-up-login-button {
+  font-size: 0.8em;
+  color: rgb(185, 184, 184);
+}
+
+.sign-up-login-button:hover {
+  text-decoration: none;
+}
+
+.login-label {
+  font-style: oblique;
+}
+
+.modal-body label {
+  font-size: 0.9em;
 }
