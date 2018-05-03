@@ -47,7 +47,7 @@
   transform: translate(0, -50%);
 }
 
-.carousel-inner>.carousel-item>.img-fluid {
+.carousel-inner > .carousel-item > .img-fluid {
   height: 650px;
   width: 100%;
 }
@@ -79,7 +79,7 @@
   margin: 5px 0 0 0;
 }
 
-.service-sec>div>a>img {
+.service-sec > div > a > img {
   height: 400px !important;
   width: 300px !important;
 }
@@ -249,4 +249,11 @@ button {
 
 .modal-body label {
   font-size: 0.9em;
+}
+
+@media screen and (max-width: 720px) {
+  .images > div {
+    display: flex;
+    flex-direction: column;
+  }
 }
