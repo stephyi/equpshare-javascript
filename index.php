@@ -1,3 +1,48 @@
+<?php 
+
+session_start();
+
+$user = "FabianMuli";
+$hostname = "localhost";
+$password = "1LoveFabian";
+$DBName = "subscribers";
+
+$conn = mysqli_connect($hostname, $user, $password, $DBName);
+
+$emailErr = $email = "";
+
+$_SESSION["logged_in"] = false;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST["email"];
+    $sql = "INSERT INTO subscribers (email) VALUES ('$email')";
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $emailErr = "Invalid email format";
+    }
+
+    $result = mysqli_query($conn, "SELECT * FROM subscribers WHERE email='" . $_POST["email"] . "'");
+    $emailResult = mysqli_num_rows($result);
+
+    if ($emailResult <= 0) {
+        if (count($_POST) > 0) {
+            mysqli_query($conn, $sql);
+        }
+    } else {
+        $emailErr = "Subscriber already exists.";
+    }
+
+
+}
+
+if ($_SESSION["logged_in"] == false) {
+    $user = "login";
+} else {
+    $user = $_SESSION["first_name"];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
@@ -65,6 +110,11 @@
                 <li class="nav-item">
                     <a href="contact.html" class="menu__item nav-link text-light">
                         <span class="menu__item-name">contact us</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.php" class="nav-item btn btn-outline-secondary mt-3">
+                        <?php echo $user; ?>
                     </a>
                 </li>
             </ul>
@@ -296,7 +346,8 @@
 
             <div class="col-md-3 ">
                 <h3 class="text-uppercase ">subscribe</h3>
-                <form class="form" method="POST" action="<?php echo htmlspecialchars($_SERVER[" subscription.php "]);?>">
+                <form class="form" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                <span class="text-danger"><?php echo $emailErr; ?></span>
                     <input class="form-control " type="email" name="email" placeholder="subscribe to our newsletter " required>
                     <br />
                     <input class="btn btn-primary" type="submit" value="subscribe">
