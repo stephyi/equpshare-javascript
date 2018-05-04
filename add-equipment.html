@@ -9,12 +9,13 @@
 
 <body>
 
-    <form id="add-equipment" action="" class="form">
+    <form id="add-equipment" method="post" action="upload.php" class="form" enctype="multipart/form-data">
         <h1>Add Equipment</h1>
-        <div class="tab">Equipment Details
-            <p>
-                <input class="form-control" placeholder="Equipment name..." oninput="this.className = ''" name="name">
-            </p>
+        <div>Equipment Details
+
+            <input class="form-control" placeholder="Equipment name..." oninput="this.className = ''" name="equipName">
+
+            <br/>
             <div class="dropdown">
                 <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
                     Equipment category
@@ -59,30 +60,19 @@
                 <textarea rows="5" class="form-control" name="description" placeholder="Equipment description..." oninput="this.className = ''"></textarea>
             </p>
         </div>
-        <div class="tab">Upload an Image of the Equipment
+        <div>Upload an Image of the Equipment
             <p>
-                <input type="file" oninput="this.className = ''" name="email">
+                <input type="file" name="file" oninput="this.className = ''" id="file">
             </p>
 
         </div>
-
-        <div style="overflow:auto;">
-            <div style="float:right;">
-                <button type="button" id="prevBtn" class="btn btn-outline-secondary" onclick="nextPrev(-1)">Previous</button>
-                <button type="button" id="nextBtn" class="btn btn-outline-secondary" onclick="nextPrev(1)">Next</button>
-            </div>
-        </div>
-        <div style="text-align:center;margin-top:40px;">
-            <span class="step"></span>
-            <span class="step"></span>
-        </div>
+        <input type="submit" value="upload" name="submit">
     </form>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-    <script src="js/add-equipment.js"></script>
 </body>
 
 </html>
