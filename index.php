@@ -1,3 +1,48 @@
+<?php 
+
+session_start();
+
+$user = "FabianMuli";
+$hostname = "localhost";
+$password = "1LoveFabian";
+$DBName = "subscribers";
+
+$conn = mysqli_connect($hostname, $user, $password, $DBName);
+
+$emailErr = $email = "";
+
+$_SESSION["logged_in"] = false;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST["email"];
+    $sql = "INSERT INTO subscribers (email) VALUES ('$email')";
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $emailErr = "Invalid email format";
+    }
+
+    $result = mysqli_query($conn, "SELECT * FROM subscribers WHERE email='" . $_POST["email"] . "'");
+    $emailResult = mysqli_num_rows($result);
+
+    if ($emailResult <= 0) {
+        if (count($_POST) > 0) {
+            mysqli_query($conn, $sql);
+        }
+    } else {
+        $emailErr = "Subscriber already exists.";
+    }
+
+
+}
+
+if ($_SESSION["logged_in"] == false) {
+    $user = "login";
+} else {
+    $user = $_SESSION["first_name"];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
@@ -33,11 +78,6 @@
     <link rel="stylesheet" type="text/css" href="slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
 
-    <!--header css and scripts-->
-    <link rel="stylesheet" type="text/css" href="css/normalizeHeader.css" />
-
-    <script src="js/header.js"></script>
-
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -70,6 +110,11 @@
                 <li class="nav-item">
                     <a href="contact.html" class="menu__item nav-link text-light">
                         <span class="menu__item-name">contact us</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.php" class="nav-item btn btn-outline-secondary mt-3">
+                        <?php echo $user; ?>
                     </a>
                 </li>
             </ul>
@@ -127,7 +172,7 @@
     </div>
 
     <!--mission and Vision section -->
-    <section class="mission-section ha-waypoint" data-animate-down="ha-header-small" data-animate-up="ha-header-large" id="about">
+    <section class="mission-section animated " data-animate-down="ha-header-small" data-animate-up="ha-header-large" id="about">
         <div class="row">
             <div class="col-md-1 "></div>
             <div class="col-md-11 ">
@@ -138,15 +183,18 @@
                         <div class="col-md-5">
                             <h4 class="text-uppercase ">Our Mission</h4>
 
-
-                            <p>Equipshare is an equipment distributor dedicated to continuously improving our products and services offering to meet unique requirements of our customers,in doin so,exceed thier
-                                expectations for service ,quality and value.We strive to earn our customers loyalty by working to deliver more than promised and provide exceptional
-                                personalized service that creates a pleasing experience.
+                            <p>Equipshare is an equipment distributor dedicated to continuously improving our products and services
+                                offering to meet unique requirements of our customers,in doin so,exceed thier expectations
+                                for service ,quality and value.We strive to earn our customers loyalty by working to deliver
+                                more than promised and provide exceptional personalized service that creates a pleasing experience.
                             </p>
                         </div>
                         <div class="col-md-5 ">
                             <h4 class="text-uppercase ">Our Vision</h4>
-                            <p>Our vision is to be the premier and preffered equipment and solutions provider on the market and offer service beyond customer satisfaction.In addition to supplying equipment,we strive to remain customer oriented and provide solutions by havingthe right product range with a high life cycle that can be customized to your need and delivered in your time frame.</p>
+                            <p>Our vision is to be the premier and preffered equipment and solutions provider on the market
+                                and offer service beyond customer satisfaction.In addition to supplying equipment,we strive
+                                to remain customer oriented and provide solutions by havingthe right product range with a
+                                high life cycle that can be customized to your need and delivered in your time frame.</p>
                         </div>
                         <div class="col-md-1 "></div>
 
@@ -177,13 +225,13 @@
                 <a href="#" class="d-block mb-3">
                     <img class="img-fluid img-thumbnail" src="images\adult-auto-automobile-558375.jpg" alt="">
                 </a>
-                <button class="button btn btn-outline-secondary ">Buy Equipments</button>
+                <a href="" class="button btn btn-outline-secondary ">Buy Equipments</a>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6">
                 <a href="#" class="d-block mb-3">
                     <img class="img-fluid img-thumbnail" src="images\cogs-gears-machine-159275.jpg" alt="">
                 </a>
-                <button class="button btn btn-outline-secondary ">Get Parts</button>
+                <a href="" class="button btn btn-outline-secondary ">Get Parts</a>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6">
                 <a href="#" class="d-block mb-3">
@@ -231,7 +279,8 @@
                     <div class="col-md-3">
                         <span>&ldquo;</span>
 
-                        <div>These guys have exceptional equipment services.recently rented grinders and the unit ran great and was competitively priced</div>
+                        <div>These guys have exceptional equipment services.recently rented grinders and the unit ran great and
+                            was competitively priced</div>
                         <span class="client-name">~Sammy Kibaa</span>
 
                     </div>
@@ -252,7 +301,8 @@
                     <div class="col-md-3">
                         <span>&ldquo;</span>
 
-                        <div>Customer services are on point!I will definitely rent at equipshare again already looking for at generators for an upcoming project.
+                        <div>Customer services are on point!I will definitely rent at equipshare again already looking for at
+                            generators for an upcoming project.
                         </div>
                         <span class="client-name">~ Victor Nzilani</span>
                     </div>
@@ -264,7 +314,7 @@
     <!--testimonials section-->
 
     <!--footer section-->
-    <footer class="footer " id="contact">
+    <footer class="footer" id="footer">
         <div class="top-footer ">
             <h2 class="text-center ">
                 Equipshare
@@ -296,7 +346,8 @@
 
             <div class="col-md-3 ">
                 <h3 class="text-uppercase ">subscribe</h3>
-                <form class="form" method="POST" action="<?php echo htmlspecialchars($_SERVER[" subscription.php "]);?>">
+                <form class="form" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                <span class="text-danger"><?php echo $emailErr; ?></span>
                     <input class="form-control " type="email" name="email" placeholder="subscribe to our newsletter " required>
                     <br />
                     <input class="btn btn-primary" type="submit" value="subscribe">
