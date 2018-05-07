@@ -55,7 +55,7 @@ if (count($_POST) > 0) {
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 <link rel="stylesheet" href="css/style.css">
-<title>Title</title>
+<title>Login|Equipshare</title>
 </head>
 <body>
     <div class="row">

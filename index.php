@@ -344,16 +344,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <a href="# ">Home</a>
                     </li>
                     <li>
-                        <a href="#services ">Services</a>
+                        <a href="services.html ">Services</a>
                     </li>
                     <li>
-                        <a href="#about ">About us</a>
+                        <a href="aboutpage.html ">About us</a>
                     </li>
                     <li>
-                        <a href="#contact ">Contacts</a>
+                        <a href="contact.html ">Contacts</a>
                     </li>
                     <li>
-                        <a href="# ">Login</a>
+                        <a href="login.php ">Login</a>
                     </li>
 
                 </ul>
@@ -388,7 +388,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-md-4 ">
                 <h3 class="text-uppercase ">contact us</h3>
                 <ul>
-                    <li>email: example@gmail.com</li>
+                    <li>email: support@equipshare.co.ke</li>
                     <li>phone: 071234789038</li>
                 </ul>
 

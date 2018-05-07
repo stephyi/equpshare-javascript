@@ -103,7 +103,7 @@ $conn->close(); // closing the datbase after operations
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-    <title>sign up</title>
+    <title>sign up|Equipshare</title>
 </head>
 <body>
 <div class="row">

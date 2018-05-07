@@ -275,6 +275,7 @@ iframe {
   position: relative;
   border: 1px solid #e6e6e6;
   overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .rs1-wrap-input100,
@@ -322,6 +323,7 @@ iframe {
 
 input.input100 {
   height: 45px;
+  overflow-x: hidden;
 }
 
 
