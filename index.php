@@ -1,17 +1,16 @@
-<?php 
+<?php
 
-session_start();
 
-$user = "FabianMuli";
+require("header.php");
+
+$DBuser = "FabianMuli";
 $hostname = "localhost";
 $password = "1LoveFabian";
 $DBName = "subscribers";
 
-$conn = mysqli_connect($hostname, $user, $password, $DBName);
+$conn = mysqli_connect($hostname, $DBuser, $password, $DBName);
 
-$emailErr = $email = "";
-
-$_SESSION["logged_in"] = false;
+$emailErr = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
@@ -30,18 +29,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
         $emailErr = "Subscriber already exists.";
+        header("location:index.php#footer");
     }
-
-
 }
-
-if ($_SESSION["logged_in"] == false) {
-    $user = "login";
-} else {
-    $user = $_SESSION["first_name"];
-}
-
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -56,14 +49,13 @@ if ($_SESSION["logged_in"] == false) {
 
     <!-- css files -->
     <!--main css file-->
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="css/demo.css" />
     <link rel="stylesheet" type="text/css" href="css/style-dustu.css" />
-    <link rel="stylesheet" type="text/css" href="/pater.css" />
-
+    <link rel="stylesheet" href="css/style.css">
     <!--animate css, for animations-->
     <link rel="stylesheet" href="css/animate.css">
+
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -76,11 +68,12 @@ if ($_SESSION["logged_in"] == false) {
 
     <!--slick css for testimonials-->
     <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
 
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<body>
 
     <!-- Navbar Section-->
     <nav class="navbar navbar-expand-md bg-dark fixed-top navbar-dark">
@@ -112,16 +105,38 @@ if ($_SESSION["logged_in"] == false) {
                         <span class="menu__item-name">contact us</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="login.php" class="nav-item btn btn-outline-secondary mt-3">
-                        <?php echo $user; ?>
-                    </a>
+                <li>
+                    
+                <div class="dropdown mt-3 pt-1">
+                    <a href="<?php echo $userLink; ?>" class="btn btn-outline-secondary" ><?php echo $user; ?></a>
+                    
+                    
+                        <?php 
+                        if ($_SESSION["LOGGED_IN"] = true) {
+
+                            ?>
+                            <div class="dropdown-content text-dark">
+                                <a href = "signout.php" >signout</a>
+                            </div >
+
+                        <?php 
+                    };
+                    ?>
+
+
+                </div>
+
                 </li>
+               
             </ul>
         </div>
     </nav>
+    <br>
+        <br>
+    <br>
+    <br>
 
-    <!-- End of Nav section-->
+                    
 
     <!-- Slideshow section-->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -170,6 +185,8 @@ if ($_SESSION["logged_in"] == false) {
             <span class="sr-only ">Next</span>
         </a>
     </div>
+
+    
 
     <!--mission and Vision section -->
     <section class="mission-section animated " data-animate-down="ha-header-small" data-animate-up="ha-header-large" id="about">

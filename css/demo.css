@@ -6,6 +6,7 @@
 }
 
 /* Fade effect */
+
 .js body {
   opacity: 0;
   transition: opacity 0.3s;
@@ -38,6 +39,7 @@ a:focus {
 }
 
 /* Icons */
+
 .icon {
   display: block;
   width: 1.5em;
@@ -78,7 +80,6 @@ a:focus {
   .demos {
     display: flex;
     padding-right: 80px;
-
     justify-self: end;
   }
   .demo {
