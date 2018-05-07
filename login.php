@@ -1,6 +1,8 @@
 <?php 
 
-$LemailErr = $LpasswordErr = "";
+session_start();
+
+$LemailErr = $LpasswordErr = $message = "";
 
 // database variables 
 $servername = "localhost";
@@ -11,17 +13,13 @@ $DBName = "users";
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $DBName);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["Lpassword"])) {
         $LpasswordErr = "password cannot be blank";
     } else {
-        $_password = $_POST["Lpassword"];
-        $_password = sha1($_password);
+        $password = $_POST["Lpassword"];
+        $_password = $password;
     }
     if (empty($_POST["Lemail"])) {
         $LemailErr = "email cannot be blank";
@@ -34,19 +32,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 if (count($_POST) > 0) {
-    $result = mysqli_query($conn, "SELECT * FROM usersData WHERE name='" . $_POST["Lemail"] . "' and password = '" . $_POST["Lpassword"] . "'");
+    $result = mysqli_query($conn, "SELECT * FROM usersData WHERE email= ('$Lemail')  and password = ('$_password')");
     $count = mysqli_num_rows($result);
     if ($count <= 0) {
         $message = "user does not exist";
     } else {
-        $message = "you have successfully logged in";
         $_SESSION["user_id"] = 1001;
         $_SESSION["LOGGED_IN"] = true;
-        $_SESSION["name"] = $name;
+        $_SESSION["email"] = $_POST["Lemail"];
         $_SESSION['loggedin_time'] = time();
         header("location:index.php");
     }
-
 }
 
 ?>
@@ -84,7 +80,7 @@ if (count($_POST) > 0) {
                         </label>
                         <br />
                         <?php echo $LemailErr; ?> 
-                        <input type="email" name="Lemail" class="form-control" placeholder="example@gmail.com">
+                        <input type="email" name="Lemail" class="form-control" placeholder="example@email.com">
                         <br />
                         <label  class="login-label">
                             Password:
