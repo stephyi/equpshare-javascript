@@ -183,18 +183,16 @@ if ($_SESSION["logged_in"] == false) {
                         <div class="col-md-5">
                             <h4 class="text-uppercase ">Our Mission</h4>
 
-                            <p>Equipshare is an equipment distributor dedicated to continuously improving our products and services
-                                offering to meet unique requirements of our customers,in doin so,exceed thier expectations
-                                for service ,quality and value.We strive to earn our customers loyalty by working to deliver
-                                more than promised and provide exceptional personalized service that creates a pleasing experience.
+                            <p>Equipshare.co.ke‘s mission is to build a sharing network for the men and women in the construction industry
+                                 in our country and offer next generation web and mobile apps that make its possible for construction professionals 
+                                 to trustfully share the newest ,most reliable construction equipment safely, fast and affordably.
                             </p>
                         </div>
                         <div class="col-md-5 ">
                             <h4 class="text-uppercase ">Our Vision</h4>
-                            <p>Our vision is to be the premier and preffered equipment and solutions provider on the market
-                                and offer service beyond customer satisfaction.In addition to supplying equipment,we strive
-                                to remain customer oriented and provide solutions by havingthe right product range with a
-                                high life cycle that can be customized to your need and delivered in your time frame.</p>
+                            <p>Equipshare.co.ke ‘s vision is to be the premier go to platform for all the construction equipment
+                             needs in Kenya by being the most trusted efficient and most transparent provider of shared equipment
+                            </p>
                         </div>
                         <div class="col-md-1 "></div>
 
