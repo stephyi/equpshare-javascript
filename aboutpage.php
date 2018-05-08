@@ -37,10 +37,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 
 <head>
-	<title>About Us</title>
+	<title>About Us|Equipshare</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<meta name="description" content="" />
+	<meta name="description" content=" Learn more about us.Who we are.Our mission.Our Vision." />
 	<meta name="keywords" content="" />
 	<link rel="stylesheet" href="css/aboutstyle.css" />
 
@@ -123,24 +123,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<!-- End of Nav section-->
 	<!-- Banner -->
 	<section id="banner">
-		<div class="inner">
-			<h1>EQUIPSHARE</h1>
-			<p>A company that understands your needs.</p>
-		</div>
-		<video autoplay loop muted playsinline>
-			<source src="images/banner.mp4" type="video/mp4"> Your browser does not support this video format
-		</video>
+	<div class="container" >
+			<img src="images\jonathan-mast-387762-unsplash.jpg"  style="width:100%;">
+			<div class="content">
+				<div class="inner">
+					<h1>EQUIPSHARE</h1>
+					<h3>A company that understands your needs.</h3>
+				</div>	
+			</div>
+	</div>
 	</section>
 	<!--Our story CTA -->
 	<section id="cta" class="wrapper">
 		<div class="inner">
-			<h2 class>OUR STORY</h2>
-			<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare
-				mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing.
-				Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac
-				adipiscing sed feugiat eu faucibus. Integer ac sed amet praesent. Nunc lacinia ante nunc ac gravida.</p>
+			<h2 class>WHO WE ARE</h2>
+			<p>We are a peer to peer rental platform for constructors and individuals to rent from one another the underutilized heavy construction equipment thus monetizing, increasing efficiency, sustainability and profitability in the construction sector in
+				 a safe and trustworthy environment.
+			</p>
 		</div>
 	</section>
+	<br/>
+	<section id="cta" class="wrapper">
+		<div class="inner">
+			<h2 class>How We Work</h2>
+			<p>Our platform is able give to our renting customers a wide range of equipment that is closest to them.
+			Through our platform ,fellow constructors are able to connect with each other and  safely through our operations team and the processes that have been legally reviewed by our legal team we facilitate contract exchanges and have all risks mitigated through carefully selected back end processes.
+			Through us we are also able to organize for logistics of moving the equipment among our customers.
+			Handle all payments between our customers in a transparent way.
+			Through our technology, we enable our customers track the location of the equipment, how it is being used
+			Handle insurance liability by validating and ensuring all equipment are legally insured.
+			Handle any maintenance issues while the equipment is on rent
+			Ensure that in cases where equipment is hired without an operator  a qualified certified operator is on the machine.
+
+			</p>
+		</div>
+	</section>	
 
 
 	<!-- Value Highlights-->
@@ -290,7 +307,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			<div class="col-md-4 ">
 				<h3 class="text-uppercase ">contact us</h3>
 				<ul>
-					<li>email: equipshare@gmail.com</li>
+					<li>email: info@equipsahre.co.ke</li>
 					<li>phone: 0712345678</li>
 				</ul>
 
