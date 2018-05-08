@@ -41,9 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <title>Equipshare</title>
+    <meta name="keywords" content="services,equipments,rent equipment,forklift,excavator,parts,telematics,lifts,earthmoving,compaction,power,tools,lend,request equipment,parts">
+    <meta name="description" content="Anything you'd like to rent or request.Just a click away!">
+    <title> Services |Equipshare</title>
+
 
     <!-- css files -->
     <!--main css file-->
@@ -362,8 +363,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-md-4 ">
                 <h3 class="text-uppercase ">contact us</h3>
                 <ul>
-                    <li>email: example@gmail.com</li>
                     <li>phone: 071234789038</li>
+                    <li>email:info@equipshare.co.ke</li>
                 </ul>
 
                 <h4 class="text-uppercase ">about us</h4>
