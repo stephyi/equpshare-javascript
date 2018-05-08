@@ -66,6 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 } else if ($count2 > 0) {
                     $message = "email already exists";
                 } else {
+                    $conn->query($sql);
                     $_SESSION["user_id"] = 1001;
                     $_SESSION["LOGGED_IN"] = true;
                     $_SESSION["email"] = $_POST["email"];

@@ -26,7 +26,11 @@ if (isset($_SESSION["email"])) {
 
 }
 
+ob_start();
+$_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
-
-
+if (isset($_SESSION['url']))
+    $url = $_SESSION['url'];
+else
+    $url = "index.php";
 ?>

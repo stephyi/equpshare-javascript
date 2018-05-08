@@ -91,17 +91,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="aboutpage.html" class="menu__item nav-link text-light">
+                    <a href="aboutpage.php" class="menu__item nav-link text-light">
                         <span class="menu__item-name">about us</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="services/index.php" class="menu__item nav-link text-light">
+                    <a href="services.php" class="menu__item nav-link text-light">
                         <span class="menu__item-name">services</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="contact.html" class="menu__item nav-link text-light">
+                    <a href="contact.php" class="menu__item nav-link text-light">
                         <span class="menu__item-name">contact us</span>
                     </a>
                 </li>
@@ -111,17 +111,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <a href="<?php echo $userLink; ?>" class="btn btn-outline-secondary" ><?php echo $user; ?></a>
                     
                     
-                        <?php 
-                        if ($_SESSION["LOGGED_IN"] = true) {
-
-                            ?>
-                            <div class="dropdown-content text-dark">
-                                <a href = "signout.php" >signout</a>
+                        <?php if (isset($_SESSION["LOGGED_IN"])) : ?>
+                            <div class="dropdown-content text-dark text-uppercase mr-3">
+                                <p>
+                                    <a href="profile.php" class="pb-1">Profile</a>
+                                </p>
+                                
+                                <p><a href="add-equipment.html" class="pb-1">Add Asset</a></p>
+                                <hr>
+                                <p><a href="signout.php" class="pb-2">signout</a></p>
                             </div >
-
                         <?php 
-                    };
-                    ?>
+                        endif; ?>
 
 
                 </div>

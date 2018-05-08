@@ -10,6 +10,7 @@ $username = "FabianMuli";
 $password = "1LoveFabian";
 $DBName = "users";
 
+
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $DBName);
 
@@ -41,7 +42,8 @@ if (count($_POST) > 0) {
         $_SESSION["LOGGED_IN"] = true;
         $_SESSION["email"] = $_POST["Lemail"];
         $_SESSION['loggedin_time'] = time();
-        header("location:index.php");
+        $url = $_SESSION['url'];
+        header("location: $url");
     }
 }
 
