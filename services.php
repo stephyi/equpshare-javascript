@@ -202,7 +202,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="">
             </div>
             <div class="">
-                <img class=" img-thumbnail " src="https://images.pexels.com/photos/583390/pexels-photo-583390.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 ">
+                <img class="img-thumbnail" src="https://images.pexels.com/photos/583390/pexels-photo-583390.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 ">
                 <div class="text-center">
                     <a href="services/aerial-lifts.php" class="btn btn-outline-secondary">Arial Lift </a>
                 </div>
