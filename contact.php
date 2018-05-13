@@ -48,9 +48,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <title>Contact Us</title>
+    <meta name="keywords" content="equipshare,contact,email,message,address,call,feedback,phone number,report,">
+    <meta name="description" content="Want to get in touch?Interested in partnering with us?Feel free to call us or send an email!">
+    <title>Contact Us|Equipshare</title>
+
 
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
@@ -328,8 +329,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="col-md-4 ">
                     <h3 class="text-uppercase ">contact us</h3>
                     <ul>
-                        <li>email: equipshare@gmail.com</li>
-                        <li>phone: 0712345678</li>
+                        <li>phone: 071234789038</li>
+                        <li>email:info@equipshare.co.ke</li>
                     </ul>
 
                     <h4 class="text-uppercase ">abouts us</h4>
