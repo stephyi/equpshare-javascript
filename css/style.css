@@ -22,8 +22,7 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  z-index: 67 !important;
-  opacity: 1 !important;
+  transition: all 0.3s;
 }
 
 .dropdown-content {
@@ -32,11 +31,10 @@
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 180px;
+  margin-left: -50px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
-  z-index: 67 !important;
-  opacity: 1 !important;
 }
 
 .dropdown:hover .dropdown-content {
@@ -63,7 +61,7 @@
 /*navbar */
 
 .navbar {
-  opacity: 0.7;
+  opacity: 1;
   color: white !important;
   font-size: 1.1em !important;
   padding: 20px !important;
@@ -191,6 +189,10 @@ body {
   position: relative;
 }
 
+.modal-title {
+  margin-right: -45px !important;
+}
+
 .login-body {
   font-family: 'Times New Roman', Times, serif;
   font-size: 1.2em;
@@ -264,6 +266,26 @@ body {
     display: flex;
     flex-direction: column;
   }
+  .dropdown-content {
+    margin-left: 0;
+  }
+  .user-name {
+    text-align: center;
+  }
+  body.profile {
+    background-color: #343a40;
+  }
+  .profile-about {
+    text-align: center;
+  }
+  .mission-vision {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+  .mission,
+  .vision {
+    text-align: center
+  }
 }
 
 .dropdown-menu {
@@ -329,4 +351,29 @@ form.validate-form *,
 .AddedAssets li a:hover {
   font-size: 30px;
   background: #f6f6f6;
+}
+
+div.txt-heading.text-center {
+  margin-top: -7%;
+  margin-bottom: -7%;
+}
+
+.image-container {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.error-message {
+    color: red;
+    font-style: italic;
+}
+
+.footer-list {
+  list-style-type: none;
+}
+
+footer {
+  display:inline-block;
 }

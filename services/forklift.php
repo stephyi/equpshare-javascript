@@ -21,10 +21,10 @@ $db_handle = new DBController();
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/pater.css">
     <link rel="stylesheet" href="css/demo.css">
-        <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 
 
-    <title>Aerial-lift | Equipshare </title>
+    <title>Fork Lift | Equipshare </title>
 </head>
 
 <body>
@@ -88,36 +88,33 @@ $db_handle = new DBController();
     </nav>
     <br><br>
     <!-- item section-->
-<div class="container grid-container d-flex d-row mb-5 mt-5 pt-5">
+<div class="container d-flex d-row justify-content-between mb-5 mt-5 pt-5">
 
     <?php 
-    $category = "Aerial Lift";
+    $category = "Forklift & Material Handling";
     $row = $db_handle->runQuery("SELECT * FROM equipment WHERE category = ('$category') ORDER BY id ASC");
     if (!empty($row)) {
-        foreach ($row as $key => $value) {
-            $equipmentname = $row[$key]["equipmentname"];
-            $_SESSION["chosen_equipment_name"] = $equipmentname;
-            ?>
-    				<div class="container">
-                        
-							<h3 class="text-center">
-                                <strong><?php echo $row[$key]["equipmentname"]; ?></strong>
-                            </h3>
+        foreach ($row as $key => $value) { ?>
+
+    				<form method="post" action="">
+
+							<h5 class="text-center">
+								<strong><?php echo $row[$key]["equipmentname"]; ?></strong>
+                            </h5>
                             <br>
                             
-                            <div class="image-container" style="background-image:url('<?php echo $row[$key]["link"]; ?>')">
+                            <div class="">
+								<img src="../<?php echo $row[$key]["link"]; ?>" class="img-thumbnail">
 							</div>
 
 							<div>
-                                <h5>Model: <?php echo $row[$key]["model"]; ?></h5>
-                                <form method="GET" action="../customerForm.php">
+                                <h5>Model: <?php echo $row[$key]["model"]; ?></h5>        
+                                <form method="GET" action="<?php echo htmlspecialchars('../customerForm.php'); ?>">
                                 <input type="hidden" name="id" value="<?php echo $row[$key]["equipmentname"]; ?>">
                                 <input name="submit" type="submit" value="Request item" class="btn btn-outline-secondary">
-                                </form>      
-                            </div>
+                                </form>                            </div>
+                              
         </form>
-                            
-        </div>
 
         
                     <?php 

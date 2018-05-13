@@ -6,10 +6,10 @@ session_start();
 if (isset($_SESSION["email"])) {
     $email = $_SESSION["email"];
 
-    $DBuser = "FabianMuli";
+    $DBuser = "equipsha_equipsh";
     $hostname = "localhost";
-    $password = "1LoveFabian";
-    $DBName = "users";
+    $password = "Admin@@2030";
+    $DBName = "equipsha_users";
     $conn = mysqli_connect($hostname, $DBuser, $password, $DBName);
     $sql = "SELECT * FROM usersdata where email = '" . $_SESSION["email"] . "'";
     $result = mysqli_query($conn, $sql);

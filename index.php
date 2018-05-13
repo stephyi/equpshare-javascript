@@ -1,12 +1,11 @@
 <?php
 
-
 require("header.php");
 
-$DBuser = "FabianMuli";
+$DBuser = "equipsha_equipsh";
 $hostname = "localhost";
-$password = "1LoveFabian";
-$DBName = "subscribers";
+$password = "Admin@@2030";
+$DBName = "equipsha_subscribers";
 
 $conn = mysqli_connect($hostname, $DBuser, $password, $DBName);
 
@@ -20,21 +19,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailErr = "Invalid email format";
     }
 
-    $result = mysqli_query($conn, "SELECT * FROM subscribers WHERE email='" . $_POST["email"] . "'");
+    $result = mysqli_query($conn, "SELECT * FROM subscribers WHERE email= ('$email')");
     $emailResult = mysqli_num_rows($result);
 
-    if ($emailResult <= 0) {
+    if ($emailResult == 0) {
         if (count($_POST) > 0) {
             mysqli_query($conn, $sql);
+            $emailErr = "You have successfully suscribed";
+            $to = $email;
+            $from = "info@equipshare.co.ke";
+            $subject = "Welcome to Equipshare.";
+            $message = "Welcome to Equipshare, you have successfully been added to our mailing list. You will receive all the offers and amazing products right in your inbox";
+
+            mail($to, $subject, $message, $from);
         }
     } else {
         $emailErr = "Subscriber already exists.";
-        header("location:index.php#footer");
     }
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -118,7 +121,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </p>
                                 
                                 <p><a href="add-equipment.html" class="pb-1">Add Asset</a></p>
-                                <hr>
+                                <p><a href="services.php" class="pb-1">Request Item</a></p>
+                               <hr> 
                                 <p><a href="signout.php" class="pb-2">signout</a></p>
                             </div >
                         <?php 
@@ -190,16 +194,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 
     <!--mission and Vision section -->
-    <section class="mission-section animated " data-animate-down="ha-header-small" data-animate-up="ha-header-large" id="about">
+    <section class="mission-section animated" data-animate-down="ha-header-small" data-animate-up="ha-header-large" id="about">
         <div class="row">
             <div class="col-md-1 "></div>
-            <div class="col-md-11 ">
-                <div class="mission content animated mission-section-hidden ">
+            <div class="col-md-11 mission-vision">
+                <div class="mission content rounded mission-section-hidden ">
                     <div class="row">
                         <div class="col-md-1 "></div>
 
-                        <div class="col-md-5">
-                            <h4 class="text-uppercase ">Our Mission</h4>
+                        <div class="col-md-5 mission">
+                            <h4 class="text-uppercase mission">Our Mission</h4>
 
                             <p>Equipshare is an equipment distributor dedicated to continuously improving our products and services
                                 offering to meet unique requirements of our customers,in doin so,exceed thier expectations
@@ -207,7 +211,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 more than promised and provide exceptional personalized service that creates a pleasing experience.
                             </p>
                         </div>
-                        <div class="col-md-5 ">
+                        <br>
+                        <br>
+                        <div class="col-md-5 vision">
                             <h4 class="text-uppercase ">Our Vision</h4>
                             <p>Our vision is to be the premier and preffered equipment and solutions provider on the market
                                 and offer service beyond customer satisfaction.In addition to supplying equipment,we strive
@@ -235,9 +241,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <br />
                 <p>Choose an option to learn more or request about a service. </p>
                 <br />
-            </div>
+                </div>
             <div class="col-md-4"></div>
         </div>
+     
         <div class="row text-center ">
             <div class="col-lg-3 col-md-4 col-xs-6">
                 <a href="#" class="d-block mb-3">
@@ -273,7 +280,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
 
-    <!--testimonials section-->
+
+    <!--testimonials section
     <section class="testimonials slick-slider">
         <div class="row">
             <div class="col-md-4"></div>
@@ -332,7 +340,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!--testimonials section-->
 
     <!--footer section-->
-    <footer class="footer" id="footer">
+    <footer class="footer " id="contact ">
         <div class="top-footer ">
             <h2 class="text-center ">
                 Equipshare
@@ -364,26 +372,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div class="col-md-3 ">
                 <h3 class="text-uppercase ">subscribe</h3>
-                <form class="form" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                <span class="text-danger"><?php echo $emailErr; ?></span>
-                    <input class="form-control " type="email" name="email" placeholder="subscribe to our newsletter " required>
+                <form class="form ">
+                    <input class="form-control " type="email " placeholder="subscribe to our newsletter " required>
                     <br />
-                    <input class="btn btn-primary" type="submit" value="subscribe">
+                    <input class="btn btn-primary " type="submit " value="subscribe ">
+                    <br />
+                    <br />
+                    <h4 class="text-uppercase ">follow us:</h4>
+                    <a href="# ">
+                        <i class="fa fa-twitter "></i>
+                    </a>
+                    <a href="# ">
+                        <i class="fa fa-facebook "></i>
+                    </a>
+                    <a href="# ">
+                        <i class="fa fa-google-plus "></i>
+                    </a>
+
                 </form>
-
-                <br />
-                <br />
-                <h4 class="text-uppercase ">follow us:</h4>
-                <a href="# ">
-                    <i class="fa fa-twitter "></i>
-                </a>
-                <a href="# ">
-                    <i class="fa fa-facebook "></i>
-                </a>
-                <a href="# ">
-                    <i class="fa fa-google-plus "></i>
-                </a>
-
             </div>
 
             <div class="col-md-1 "></div>
@@ -395,10 +401,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <li>phone: 071234789038</li>
                 </ul>
 
-                <h4 class="text-uppercase">about us</h4>
+                <h4 class="text-uppercase ">about us</h4>
 
                 <li>
-                    <a href="contacts.html">contacts</a>
+                    <a href="# ">contacts</a>
                 </li>
                 <li>
                     <a href="# ">privacy policy</a>
@@ -422,7 +428,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script type="text/javascript" src="js/testimonials.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js "></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js "></script>
-
+    <script src="js/validate-form.js"></script>
 
 </body>
 

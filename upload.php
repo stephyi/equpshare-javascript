@@ -6,20 +6,25 @@ if ($_SESSION["LOGGED_IN"] == false) {
     header("location: login.php");
 }
 
-include("services/generateCode.php");
-
 $_SESSION["equipmentname"] = $_POST["equipName"];
 
-$email = $_SESSION["email"];
 
-$DBuser = "FabianMuli";
+$email = $_SESSION["email"];
+$model = $availability = $capacity = "";
+$model = $_POST["model"];
+$availability = $_POST["availability"];
+$capacity = $_POST["capacity"];
+$price = $_POST["price"];
+$_SESSION['user-email'] = $email;
+
+$DBuser = "equipsha_equipsh";
 $hostname = "localhost";
-$password = "1LoveFabian";
-$DBName = "equipment";
+$password = "Admin@@2030";
+$DBName = "equipsha_equipment";
 
 $conn = mysqli_connect($hostname, $DBuser, $password, $DBName);
 
-$target_dir = "uploads/";
+$target_dir = "services/uploads/" . $_SESSION['user-email'];
 $target_file = $target_dir . basename($_FILES["file"]["name"]);
 $link = $target_file;
 $uploadOk = 1;
@@ -64,17 +69,12 @@ if ($uploadOk == 0) {
 
         $code = createRandomCode();
 
-        $sql = "INSERT INTO equipment (equipment.equipmentname, category, description, link, email, code) VALUES ('$equipName','$category','$description','$link','$email', '$code')";
+        $sql = "INSERT INTO equipment (equipment.equipmentname, category, description, link, email, code,price,availability,capacity,model) VALUES ('$equipName','$category','$description','$link','$email', '$code','$availability','$capacity','$model')";
         mysqli_query($conn, $sql);
         mysqli_close($conn);
-        header("location:profile.php");
-
+        header("location: profile.php");
     } else {
         echo " Sorry, there was an error uploading your file . ";
     }
-
 }
-
-
-
 ?>

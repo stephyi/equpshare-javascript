@@ -2,10 +2,10 @@
 
 require("header.php");
 
-$DBuser = "FabianMuli";
+$DBuser = "equipsha_equipsh";
 $hostname = "localhost";
-$password = "1LoveFabian";
-$DBName = "subscribers";
+$password = "Admin@@2030";
+$DBName = "equipsha_subscribers";
 
 $conn = mysqli_connect($hostname, $DBuser, $password, $DBName);
 
@@ -104,6 +104,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </p>
                                 
                                 <p><a href="add-equipment.html" class="pb-1">Add Asset</a></p>
+								<p><a href="services.php" class="pb-1">Request Item</a></p>
+
                                 <hr>
                                 <p><a href="signout.php" class="pb-2">signout</a></p>
                             </div >

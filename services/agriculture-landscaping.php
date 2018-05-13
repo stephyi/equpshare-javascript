@@ -24,7 +24,7 @@ $db_handle = new DBController();
         <link rel="stylesheet" href="../css/style.css">
 
 
-    <title>Aerial-lift | Equipshare </title>
+    <title>Agriculture & Landscaping | Equipshare </title>
 </head>
 
 <body>
@@ -72,6 +72,7 @@ $db_handle = new DBController();
                                 
                                 <p><a href="../add-equipment.html" class="pb-1">Add Asset</a></p>
                                 <p><a href="../services.php" class="pb-1">Request Item</a></p>
+
                                 <hr>
                                 <p><a href="../signout.php" class="pb-2">signout</a></p>
                             </div >
@@ -88,36 +89,32 @@ $db_handle = new DBController();
     </nav>
     <br><br>
     <!-- item section-->
-<div class="container grid-container d-flex d-row mb-5 mt-5 pt-5">
+<div class="container d-flex d-row justify-content-between mb-5 mt-5 pt-5">
 
     <?php 
-    $category = "Aerial Lift";
+    $category = "Agriculture & Landscaping";
     $row = $db_handle->runQuery("SELECT * FROM equipment WHERE category = ('$category') ORDER BY id ASC");
     if (!empty($row)) {
-        foreach ($row as $key => $value) {
-            $equipmentname = $row[$key]["equipmentname"];
-            $_SESSION["chosen_equipment_name"] = $equipmentname;
-            ?>
-    				<div class="container">
-                        
-							<h3 class="text-center">
-                                <strong><?php echo $row[$key]["equipmentname"]; ?></strong>
-                            </h3>
+        foreach ($row as $key => $value) { ?>
+
+    				<form method="post" action="">
+
+							<h5 class="text-center">
+								<strong><?php echo $row[$key]["equipmentname"]; ?></strong>
+                            </h5>
                             <br>
                             
-                            <div class="image-container" style="background-image:url('<?php echo $row[$key]["link"]; ?>')">
+                            <div class="">
+								<img src="../<?php echo $row[$key]["link"]; ?>" class="img-thumbnail">
 							</div>
 
-							<div>
-                                <h5>Model: <?php echo $row[$key]["model"]; ?></h5>
-                                <form method="GET" action="../customerForm.php">
-                                <input type="hidden" name="id" value="<?php echo $row[$key]["equipmentname"]; ?>">
-                                <input name="submit" type="submit" value="Request item" class="btn btn-outline-secondary">
-                                </form>      
+                            <div>
+                                <h5>Model: <?php echo $row[$key]["model"]; ?></h5>        
+                                 <a href="" class="btn btn-outline-secondary">Request Item</a>
                             </div>
-        </form>
                             
-        </div>
+                            
+        </form>
 
         
                     <?php 

@@ -7,48 +7,74 @@
 <link rel="stylesheet" href="css/add-equipment.css">
 
 
-<body class="bg-light">
-    <div class="container" class="bg-light">
-        <form method="POST" action="upload.php" class="form" enctype="multipart/form-data">
+<body>
+
+    <div class="container bg-light rounded p-5">
+        <form method="POST" action="upload.php" class="form container" enctype="multipart/form-data">
             <h1>Add Equipment</h1>
-            Equipment Details
+            <p class="text-center">
+                Equipment Details
+            </p>
+            <div class="form-group">
+                <input class=" form-control" placeholder="Equipment name... " name="equipName" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" placeholder="Model... " name="model" required>
 
-            <input class="form-control" placeholder="Equipment name..." name="equipName" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" placeholder="Capacity... " name="capacity">
+            </div>
 
-            <br/>
+            <div class="form-group">
+                <input class="form-control" placeholder="Availability... " name="availability" required>
+            </div>
 
-            <select class="form-control" name="category">
-                <option value="Agriculture & Landscaping"> Agriculture & Landscaping</option>
-                <option value="Aerial Lift">Aerial Lift</option>
-                <option value="Compaction">Compaction</option>
-                <option value="Concrete & masonry">Concrete & masonry</option>
-                <option value="Earth Moving">Earth Moving</option>
-                <option value="Forklift & Material Handling">Forklift & Material Handling</option>
-                <option value="Power / Small tools">Power / Small tools</option>
-                <option value="Power & HVAC">Power & HVAC</option>
-                <option value="Safety & Shoring">Safety & Shoring</option>
-            </select>
+            <div class="form-group">
+                <input class="form-control" type="number" placeholder="price per hour... " name="price" required>
+            </div>
 
-            <br />
-            <br>
+            <div class="form-group">
+                <select class="form-control" name="category">
+                    <option>Select category</option>
+
+                    <option value="Agriculture & Landscaping"> Agriculture & Landscaping</option>
+                    <option value="Aerial Lift">Aerial Lift</option>
+                    <option value="Compaction">Compaction</option>
+                    <option value="Concrete & masonry">Concrete & masonry</option>
+                    <option value="Earth Moving">Earth Moving</option>
+                    <option value="Forklift & Material Handling">Forklift & Material Handling</option>
+                    <option value="Power / Small tools">Power / Small tools</option>
+                    <option value="Power & HVAC">Power & HVAC</option>
+                    <option value="Safety & Shoring">Safety & Shoring</option>
+                </select>
+            </div>
 
 
-            <textarea rows="5" class="form-control" name="description" placeholder="Equipment description..." required min-length="15"
-                value="Increase the length of the description text"></textarea>
 
-            <br>
-            <br> Upload an Image of the Equipment
-            <input type="file" name="file">
-            <br>
-            <br>
-            <input type="submit" value="upload" name="submit">
+
+            <div class="form-group">
+                <textarea rows="5" class="form-control" name="description" placeholder="Equipment description..." required min-length="15"
+                    value="Increase the length of the description text "></textarea>
+            </div>
+
+            <div class="form-group">
+                <p>
+                    Upload a clear Image of the Equipment
+                </p>
+                <input type="file" name="file" class="form-control-file">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="upload" name="submit" class="btn btn-outline-secondary">
+            </div>
+
         </form>
+    </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js "></script>
     </div>
 </body>
-
 
 </html>

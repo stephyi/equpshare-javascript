@@ -15,9 +15,9 @@ $name = $password = $email = "";
 
 // database variables 
 $servername = "localhost";
-$username = "FabianMuli";
-$password = "1LoveFabian";
-$DBName = "users";
+$username = "equipsha_equipsh";
+$password = "Admin@@2030";
+$DBName = "equipsha_users";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $DBName);
@@ -92,6 +92,7 @@ $conn->close(); // closing the datbase after operations
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
@@ -104,7 +105,8 @@ $conn->close(); // closing the datbase after operations
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-    <title>sign up</title>
+    
+    <title>Sign Up | Equipshare</title>
 </head>
 <body>
 <div class="row">
@@ -113,40 +115,73 @@ $conn->close(); // closing the datbase after operations
 
     <div class="card mt-5">
         <div class="card-header text-center p-3 text-uppercase">
-            Sign up
+           <h3> Sign up</h3>
         </div>
         <div class="card-body">
-            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="validate">
                 <div class="text-center p-2 mb-3 text-capitalize">
-                    <span><?php echo $message; ?></span>
+                    <span class="text-danger"><?php echo $message; ?></span>
                 </div>
-                Full Name: <input type="text" name="name" class="form-control" value="<?php echo $name; ?>" required>
-                <span class="error"><?php echo $nameErr; ?></span>
-                <br><br>
-                E-mail:
-                <input type="email" name="email"  class="form-control" value="<?php echo $email; ?>" required>
-                <span class="error"><?php echo $emailErr; ?></span>
-                <br><br>
-                Password:
-                <input type="password" name="password" class="form-control" required>
-                <span class="error"><?php echo $passwordErr; ?></span>
-                <br><br>
-                Confirm Password:
-                <input type="password" name="confirmPassword" class="form-control" required>
-                <span class="error"><?php echo $confirmPasswordErr; ?></span>
+
+                <div class="form-group name-input">
+                    <label for="name">Full Name:</label> </span><input type="text" name="name" id="name" class="form-control" value="<?php echo $name; ?>" required>
+                    <span class="text-danger"><?php echo $nameErr; ?></span>
+                </div>
+                
+                <div class="form-group email-input">
+                    <label for="email">E-mail:</label>
+                    <input type="email" name="email" id="email" title="The domain portion of the email address is invalid (the portion after the @)." class="form-control" value="<?php echo $email; ?>" pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$" required>
+                    <span class="text-danger"><?php echo $emailErr; ?></span>
+                </div>
+
+                <div class="form-group password-input">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" class="form-control" title="Passwords should include 1 uppercase letter, 1 lowercase letter and 1 number" minlength="6" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
+                    <span class="text-danger"><?php echo $passwordErr; ?></span>
+                </div>
+
+                <div class="form-group password2-input">
+                    <label for="password2">Confirm Password:</label>
+                    <input type="password" name="confirmPassword" id="password2" class="form-control" title="Passwords should include 1 uppercase letter, 1 lowercase letter and 1 number" minlength="6" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
+                    <span class="text-danger"><?php echo $confirmPasswordErr; ?></span>
+                    <p id="passwordErrorContainer" class="error">
+                        <span class="error-message" id="passwordError"></span>
+                    </p>
+                <div>
+
+            
 
         </div>
-        <div class="card-footer text-center p-3">
-                <input type="submit" class="btn btn-outline-secondary" name="submit" value="sign up"> 
 
+        <div class="text-center p-3">
+                <input type="submit" class="btn btn-outline-secondary btn-lg" name="submit" value="sign up"> 
+                <a href="login.php" class="login-a sign-up-login-button text-center"> or Login</a>
         </div>
 
-            </form>
+        </form>
+    
     </div>
 
-    </div>
     <div class="col-md-3"></div>
 </div>
+
+<script src="js/validate-form.js"></script>
+    <script>
+        $(function() {
+            $('#name').change(function(){
+                $('.name-input>.error-message').css("display","none");
+            });
+            $('#email').change(function(){
+                $('.email-input>.error-message').css("display","none");
+            });
+            $('#password').change(function(){
+                $('.password-input>.error-message').css("display","none");
+            });
+            $('#password2').change(function(){
+                $('.password2-input>.error-message').css("display","none");
+            });
+        })
+    </script>
 
 </body>
 </html>
