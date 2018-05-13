@@ -1,12 +1,10 @@
 <?php
-
-
 require("header.php");
 
-$DBuser = "FabianMuli";
+$DBuser = "equipsha_equipsh";
 $hostname = "localhost";
-$password = "1LoveFabian";
-$DBName = "subscribers";
+$password = "Admin@@2030";
+$DBName = "equipsha_subscribers";
 
 $conn = mysqli_connect($hostname, $DBuser, $password, $DBName);
 
@@ -26,10 +24,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($emailResult <= 0) {
         if (count($_POST) > 0) {
             mysqli_query($conn, $sql);
+            $emailErr = "You have successfully subscribed.";
+            $to = $email;
+            $from = "info@equipshare.co.ke";
+            $subject = "Welcome to Equipshare.";
+            $message = "Welcome to Equipshare, you have successfully been added to our mailing list. You will receive all the offers and amazing products right in your inbox";
+
+            mail($to, $subject, $message, $from);
         }
     } else {
         $emailErr = "Subscriber already exists.";
-        header("location:index.php#footer");
     }
 }
 ?>
@@ -41,10 +45,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="">
-    <meta name="keywords" content="services,equipments,rent equipment,forklift,excavator,parts,telematics,lifts,earthmoving,compaction,power,tools,lend,request equipment,parts">
-    <meta name="description" content="Anything you'd like to rent or request.Just a click away!">
-    <title> Services |Equipshare</title>
-
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>Services | Equipshare</title>
 
     <!-- css files -->
     <!--main css file-->
@@ -118,14 +121,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="dropdown mt-3 pt-1">
                     <a href="<?php echo $userLink; ?>" class="btn btn-outline-secondary" ><?php echo $user; ?></a>
                        <?php if (isset($_SESSION["LOGGED_IN"])) : ?>
-                            <div class="dropdown-content text-dark text-uppercase mr-3">
+                            <div class="dropdown-content text-dark text-uppercase">
                                 <p>
                                     <a href="profile.php" class="pb-1">Profile</a>
-                                </p>
-                                
+                                </p> 
                                 <p><a href="add-equipment.html" class="pb-1">Add Asset</a></p>
+                                <p><a href="services.php" class="pb-1">Request Item</a></p>
+
                                 <hr>
                                 <p><a href="signout.php" class="pb-2">signout</a></p>
+
                             </div >
                         <?php 
                         endif; ?>
@@ -199,7 +204,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="">
                 <img class=" img-thumbnail " src="https://images.pexels.com/photos/583390/pexels-photo-583390.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 ">
                 <div class="text-center">
-                    <a href="services/aerial-types.html" class="btn btn-outline-secondary">Arial Lift </a>
+                    <a href="services/aerial-lifts.php" class="btn btn-outline-secondary">Arial Lift </a>
                 </div>
 
             </div>
@@ -208,7 +213,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <img class="img-thumbnail " src="https://images.pexels.com/photos/583390/pexels-photo-583390.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 ">
 
                 <div class="text-center">
-                    <a href=" " class="btn btn-outline-secondary ">Earth Moving </a>
+                    <a href=" services/earth-moving.php" class="btn btn-outline-secondary ">Earth Moving </a>
                 </div>
 
             </div>
@@ -218,7 +223,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <img class="img-thumbnail" src="https://images.pexels.com/photos/583390/pexels-photo-583390.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 ">
 
                 <div class="text-center">
-                    <a href=" " class="btn btn-outline-secondary ">Forklift & Material Handling </a>
+                    <a href=" services/forklift.php" class="btn btn-outline-secondary ">Forklift & Material Handling </a>
                 </div>
 
             </div>
@@ -234,7 +239,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <img class="img-thumbnail" src="https://images.pexels.com/photos/416965/pexels-photo-416965.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 ">
 
                 <div class="text-center">
-                    <a href=" " class="btn btn-outline-secondary">Concrete & Mansonry </a>
+                    <a href="services/concrete-masonry.php" class="btn btn-outline-secondary">Concrete & Mansonry </a>
                 </div>
 
             </div>
@@ -244,7 +249,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <img class="img-thumbnail" src="https://images.pexels.com/photos/839900/pexels-photo-839900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
 
                 <div class="text-center">
-                    <a href=" " class="btn btn-outline-secondary ">Compaction </a>
+                    <a href="services/compaction.php" class="btn btn-outline-secondary ">Compaction </a>
                 </div>
 
             </div>
@@ -254,7 +259,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <img class="img-thumbnail " src="https://images.pexels.com/photos/583390/pexels-photo-583390.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
 
                 <div class="text-center">
-                    <a href=" " class="btn btn-outline-secondary ">Power & HVAC</a>
+                    <a href="services/power-hvac.php " class="btn btn-outline-secondary ">Power & HVAC</a>
                 </div>
             </div>
             <br>
@@ -270,7 +275,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <img class="img-thumbnail " src="https://images.pexels.com/photos/839900/pexels-photo-839900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 ">
 
                 <div class="text-center">
-                    <a href=" " class="btn btn-outline-secondary ">Power /Small Tools </a>
+                    <a href=" services/power-smalltools.php" class="btn btn-outline-secondary ">Power /Small Tools </a>
                 </div>
 
             </div>
@@ -280,7 +285,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <img class="img-thumbnail " src="https://images.pexels.com/photos/416965/pexels-photo-416965.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 ">
 
                 <div class="text-center">
-                    <a href=" " class="btn btn-outline-secondary ">Safety & Shoring </a>
+                    <a href="services/safety-shoring.php " class="btn btn-outline-secondary ">Safety & Shoring </a>
                 </div>
 
             </div>
@@ -290,7 +295,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <img class="img-thumbnail " src=" https://images.pexels.com/photos/583390/pexels-photo-583390.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 ">
 
                 <div class="text-center">
-                    <a href=" " class="btn btn-outline-secondary ">Agriculture & Landscaping </a>
+                    <a href="services/agriculture-landscaping.php" class="btn btn-outline-secondary ">Agriculture & Landscaping </a>
                 </div>
             </div>
             <br>
@@ -363,8 +368,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-md-4 ">
                 <h3 class="text-uppercase ">contact us</h3>
                 <ul>
+                    <li>email: example@gmail.com</li>
                     <li>phone: 071234789038</li>
-                    <li>email:info@equipshare.co.ke</li>
                 </ul>
 
                 <h4 class="text-uppercase ">about us</h4>

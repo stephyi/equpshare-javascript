@@ -2,18 +2,17 @@
 
 session_start();
 
-$LemailErr = $LpasswordErr = $message = "";
+$LemailErr = $LpasswordErr = $message = $Lemail = $Lpassword = $_password = "";
 
 // database variables 
 $servername = "localhost";
-$username = "FabianMuli";
-$password = "1LoveFabian";
-$DBName = "users";
+$username = "equipsha_equipsh";
+$password = "Admin@@2030";
+$DBName = "equipsha_users";
 
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $DBName);
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["Lpassword"])) {
@@ -57,7 +56,7 @@ if (count($_POST) > 0) {
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 <link rel="stylesheet" href="css/style.css">
-<title>Login|Equipshare</title>
+<title>Login | Equipshare</title>
 </head>
 <body>
     <div class="row">
@@ -71,38 +70,44 @@ if (count($_POST) > 0) {
                     </h1>
                 </div>
 
-                <form method="post" action="#" class="form">
-                    <div class="text-center">
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="form validate">
+                    <div class="text-center login-error">
+                        <br>
                         <span class="text-danger"><?php echo $message; ?></span>
                     </div>
                     <div class="card-body">
 
-                        <label class="login-label">
-                            E-mail:
-                        </label>
-                        <br />
-                        <?php echo $LemailErr; ?> 
-                        <input type="email" name="Lemail" class="form-control" placeholder="example@email.com">
-                        <br />
-                        <label  class="login-label">
-                            Password:
-                        </label>
-                        <?php echo $LpasswordErr; ?> 
-                        <a href="#" class="login-a">Forgot your password?</a>
-                        <input type="password" name="Lpassword" class="form-control">
-                        <br />
-                        <br />
+                        <div class="form-group email-input">
+                            
+                            <br>
+                            <label for="Lemail" class="login-label">
+                                E-mail:
+                            </label>
+                             
+                            <input type="email" name="Lemail" id="email" value="<?php echo $Lemail; ?>" class="form-control" placeholder="example@email.com" title="The domain portion of the email address is invalid (the portion after the @)."  pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$" required>
+                            <div class="text-center">
+                                <span class="error-message text-center"><?php echo $LemailErr; ?></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            
+                            <br>
+                            <label for="Lpassword" class="login-label">
+                                Password:
+                            </label>
+                            <a href="#" class="login-a">Forgot your password?</a>
+                            <input type="password" name="Lpassword" id="password" class="form-control"  required>
+                            <div class="text-center">
+                                <span class="error-message"><?php echo $LpasswordErr; ?></span>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="card-footer">
-                        <div class="row">
-                            <div class="col-md-2"></div>
-                            <div class="col-md-8">
-                                <button class="btn btn-outline-secondary">Log in</button>
-                                <a href="signup.php" class="login-a sign-up-login-button text-center"> or sign up</a>
-
-                            </div>
-                            <div class="col-md-2"></div>
-
+                        <div class="text-center">
+                            <input class="btn btn-outline-secondary" type="submit" value="Login">
+                            <a href="signup.php" class="login-a sign-up-login-button text-center"> or sign up</a>
                         </div>
 
                     </div>
@@ -116,5 +121,20 @@ if (count($_POST) > 0) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="js/validate-form.js"></script>
+    <script>
+        $(function() {
+           
+            $('#email').change(function(){
+                $('.email-input>.error-message').css("display","none");
+            });
+            $('#password').change(function(){
+                $('.password-input>.error-message').css("display","none");
+            });
+
+
+            
+        });
+    </script>
 </body>
 </html>

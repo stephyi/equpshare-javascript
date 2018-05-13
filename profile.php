@@ -6,12 +6,13 @@ if ($_SESSION["LOGGED_IN"] == false) {
     header("location: login.php");
 }
 
+
 $emailErr = "";
 
-$DBuser = "FabianMuli";
+$DBuser = "equipsha_equipsh";
 $hostname = "localhost";
-$password = "1LoveFabian";
-$DBName = "subscribers";
+$password = "Admin@@2030";
+$DBName = "equipsha_subscribers";
 
 $conn = mysqli_connect($hostname, $DBuser, $password, $DBName);
 
@@ -37,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 mysqli_close($conn);
 
-$DBName = "equipment";
+$DBName = "equipsha_equipment";
 
 $conn = mysqli_connect($hostname, $DBuser, $password, $DBName);
 
@@ -63,7 +64,7 @@ $conn = mysqli_connect($hostname, $DBuser, $password, $DBName);
 
 <title class="text-capitalize"><?php echo $user; ?> | Profile</title>
 </head>
-<body>
+<body class="profile">
     <nav class="navbar navbar-expand-md bg-dark fixed-top navbar-dark">
 
         <a href="#" class="navbar-brand text-light">Equipshare</a>
@@ -104,6 +105,8 @@ $conn = mysqli_connect($hostname, $DBuser, $password, $DBName);
                                 </p>
                                 
                                 <p><a href="add-equipment.html" class="pb-1">Add Asset</a></p>
+                                <p><a href="services.php" class="pb-1">Request Item</a></p>
+
                                 <hr>
                                 <p><a href="signout.php" class="pb-2">signout</a></p>
                             </div >
@@ -117,38 +120,42 @@ $conn = mysqli_connect($hostname, $DBuser, $password, $DBName);
         </div>
     </nav>
     <br>
-        <br>
     <br>
     <br>
 
     <div class="bg-dark d-flex p-5">
-    <div class="profile">
-        <img  class="rounded-circle  ml-5" src="https://api.adorable.io/avatars/180/abott@adorable.png"><span class="text-light pl-5 user-name text-capitalize"><?php echo $user; ?></span>
+    <div class="profile mx-auto">
+        <img  class="rounded-circle mx-auto" src="https://api.adorable.io/avatars/180/abott@adorable.png">
+        <br>
+        <br>
+        <span class="text-light pl-4 user-name text-capitalize"><?php echo $user; ?></span>
     </div>
     </div>
-    <div class="d-flex d-row profile-divs justify-content-between mb-5 ">
-        <div class=""></div>
+    <div class="d-flex d-row container profile-divs justify-content-between mb-5 ">
         <div class=" bg-light profile-about rounded">
-            <div class="">
                 <div>
                     <h3>About</h3>
                     <p>Email: <?php echo $_SESSION["email"]; ?></p>
                 </div>
                 
                 
-            </div>
             
         </div>
-        <div class=""></div>
+        <br>
+        <br>
         <div class=" bg-light profile-about AddedAssets rounded ">
          <h3>Your Added Assets</h3>
 
         <?php 
         require_once("services/dbcontroller.php");
         $db_handle = new DBController();
+        $email = "";
+        $email = $_SESSION["email"];
 
-        $row = $db_handle->runQuery("SELECT * FROM EQUIPMENT WHERE email = ('$email') ORDER BY ID ASC");
-        foreach ($row as $key => $value) {; ?>
+        $row = $db_handle->runQuery("SELECT * FROM equipment WHERE email = ('$email')");
+        if (!(empty($row))) {
+
+            foreach ($row as $key => $value) { ?>
             <div>
                 <ul>
                     <li><a href="" data-toggle="modal" data-target="#<?php echo $row[$key]["equipmentname"]; ?>"><?php echo $row[$key]["equipmentname"]; ?></a></li>
@@ -165,13 +172,22 @@ $conn = mysqli_connect($hostname, $DBuser, $password, $DBName);
       </div>
 
       <!-- Modal body -->
-      <div class="modal-body">
+      <div class="modal-body text-center">
         <img src="<?php echo $row[$key]["link"]; ?>" class="img-thumbnail rounded">
+        <h3>Description</h3>
+        <p  class="mx-auto"><?php echo $row[$key]["description"]; ?></p>
+        <h3>Capacity</h3>
+        <p  class="mx-auto"><?php echo $row[$key]["capacity"]; ?></p>
+        <h3>Model</h3>        
+        <p  class="mx-auto"><?php echo $row[$key]["model"]; ?></p>
+        <h3>Availability</h3>        
+        <p  class="mx-auto"><?php echo $row[$key]["availability"]; ?></p>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
-          <p  class="mx-auto"><?php echo $row[$key]["description"]; ?></p>
+        <input type="button" class="btn btn-outline-secondary mr-auto" value="Edit">
+
           <input type="button" class="btn btn-danger ml-auto" value="Delete">
 
       </div>
@@ -179,24 +195,123 @@ $conn = mysqli_connect($hostname, $DBuser, $password, $DBName);
     </div>
   </div>
 </div>
+         <?php 
+    }
+} else {
+    echo "You have not added any assets";
+}
+?>
+<br>
+<br >
+            <div class="text-center">
+                <a href="add-equipment.html" class="btn btn-outline-secondary">Add Asset</a>
+            </div>
+
+        </div>
+        <br>
+        <br>
+        <div class="bg-light profile-about AddedAssets rounded ">
+         <h3>Your Loaned Assets</h3>
         <?php 
-    };
-    ?>
-            
+        $row = $db_handle->runQuery("SELECT * FROM equipment_requests WHERE lender = ('$email')");
+        if (!(empty($row))) {
 
-        </div>
-        <div class=""></div>
-        <div class="bg-light profile-about rounded ">
-            <h3>Rented Items</h3>
-                <p>You have not rented out any items</p>
+            foreach ($row as $key => $value) { ?>
+            <div>
+                <ul>
+                    <li><a href="" data-toggle="modal" data-target="#<?php echo $row[$key]["equipment_name"]; ?>"><?php echo $row[$key]["equipmentname"]; ?></a></li>
+                </ul>
+            </div>
+            <div class="modal fade" id="<?php echo $row[$key]["equipment_name"]; ?>">
+            <div class="modal-dialog">
+            <div class="modal-content">
 
-        </div>
+      <!-- Modal Header -->
+      <div class="modal-header ">
+        <h4 class="modal-title mx-auto"><?php echo $row[$key]["equipment_name"]; ?></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-center">
+        <img src="<?php echo $row[$key]["image_link"]; ?>" class="img-thumbnail rounded">
+        <h3>Description</h3>
+        <p  class="mx-auto"><?php echo $row[$key]["equipment_description"]; ?></p>
+        <h3>Capacity</h3>
+        <p  class="mx-auto"><?php echo $row[$key]["capacity"]; ?></p>
+        <h3>Model</h3>        
+        <p  class="mx-auto"><?php echo $row[$key]["model"]; ?></p>
+        <h3>Availability</h3>        
+        <p  class="mx-auto"><?php echo $row[$key]["availability"]; ?></p>
+      </div>
+
+    </div>
+  </div>
+</div>
+         <?php 
+    }
+} else {
+    echo "Your items have not been requested yet";
+}
+?>
+
+</div>
+<br>
+<br >
         <div class="bg-light profile-about rounded" >
                 <h3>Requested Items</h3>
-                <p>You have not rented out any items</p>
+               <?php 
+                $row = $db_handle->runQuery("SELECT * FROM equipment_requests WHERE email = ('$email')");
+                if (!(empty($row))) {
+
+                    foreach ($row as $key => $value) { ?>
+            <div>
+                <ul>
+                    <li><a href="" data-toggle="modal" data-target="#<?php echo $row[$key]["equipment_name"]; ?>"><?php echo $row[$key]["equipment_name"]; ?></a></li>
+                </ul>
+            </div>
+            <div class="modal fade" id="<?php echo $row[$key]["equipment_name"]; ?>">
+            <div class="modal-dialog">
+            <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header ">
+        <h4 class="modal-title mx-auto"><?php echo $row[$key]["equipment_name"]; ?></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-center">
+        <img src="<?php echo $row[$key]["image_link"]; ?>" class="img-thumbnail rounded">
+        <h3>Description</h3>
+        <p  class="mx-auto"><?php echo $row[$key]["equipment_description"]; ?></p>
+        <h3>Capacity</h3>
+        <p  class="mx-auto"><?php echo $row[$key]["capacity"]; ?></p>
+        <h3>Model</h3>        
+        <p  class="mx-auto"><?php echo $row[$key]["model"]; ?></p>
+        <h3>Availability</h3>        
+        <p  class="mx-auto"><?php echo $row[$key]["availability"]; ?></p>
+      </div>
+
+    </div>
+  </div>
+</div>
+         <?php 
+    }
+} else {
+    echo "Your have not made requests yet";
+}
+?>
+
+<br>
+<br>
+
+                            <div class="text-center">
+
+                <a href="services.php" class=" btn btn-outline-secondary">Request Items</a>
+            </div>
             </div>
         
-        <div class=""></div>
     </div>
         
     </div>

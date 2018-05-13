@@ -3,10 +3,10 @@
 
 require("header.php");
 
-$DBuser = "FabianMuli";
+$DBuser = "equipsha_equipsh";
 $hostname = "localhost";
-$password = "1LoveFabian";
-$DBName = "subscribers";
+$password = "Admin@@2030";
+$DBName = "equipsha_subscribers";
 
 $conn = mysqli_connect($hostname, $DBuser, $password, $DBName);
 
@@ -26,10 +26,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($emailResult <= 0) {
         if (count($_POST) > 0) {
             mysqli_query($conn, $sql);
+            $emailErr = "You have successfully subscribed.";
+            $to = $email;
+            $from = "info@equipshare.co.ke";
+            $subject = "Welcome to Equipshare.";
+            $message = "Welcome to Equipshare, you have successfully been added to our mailing list. You will receive all the offers and amazing products right in your inbox";
+
+            mail($to, $subject, $message, $from);
         }
     } else {
         $emailErr = "Subscriber already exists.";
-        header("location:index.php#footer");
     }
 }
 ?>
@@ -66,8 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!--===============================================================================================-->
 
     <!-- css files -->
-    <!--main css file-->
-    <link rel="stylesheet" href="css/style.css">
+    
 
     <!--animate css, for animations-->
     <link rel="stylesheet" href="css/animate.css">
@@ -90,11 +95,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="css/pater.css">
     <link rel="stylesheet" href="css/demo.css">
 
+    <!--main css file-->
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
-
     <!-- Navbar Section-->
     <nav class="navbar navbar-expand-md bg-dark fixed-top navbar-dark">
 
@@ -130,11 +136,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="dropdown mt-3 pt-1">
                     <a href="<?php echo $userLink; ?>" class="btn btn-outline-secondary" ><?php echo $user; ?></a>
                         <?php 
-                        if ($_SESSION["LOGGED_IN"] = true) {
+                        if ($_SESSION["LOGGED_IN"] == true) {
 
                             ?>
-                            <div class="dropdown-content text-dark">
-                                <a href = "signout.php" >signout</a>
+                            <div class="dropdown-content text-dark text-uppercase">
+                                <p>
+                                    <a href="profile.php" class="pb-1">Profile</a>
+                                </p> 
+                                <p><a href="add-equipment.html" class="pb-1">Add Asset</a></p>
+                                <p><a href="services.php" class="pb-1">Request Item</a></p>
+
+                                <hr>
+                                <p><a href="signout.php" class="pb-2">signout</a></p>
+
                             </div >
 
                         <?php 
@@ -155,25 +169,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!--Contact section-->
     <div class="container-contact100">
         <div class="wrap-contact100">
-            <form class="contact100-form validate-form">
+            <form class="contact100-form validate-form validate" method="POST" action="<?php echo htmlspecialchars('sendingMessage.php') ?>">
                 <span class="contact100-form-title">
                     Contact Us!
+                    <?php if (isset($_SESSION["send_message_success"])) {
+                        echo $_SESSION["send_message_success"];
+                    } ?>
                 </span>
                 <h5 class="contact100-form-subtitle">Here at Equipshare,we love feedback.</h5>
 
                 <label class="label-input100" for="first-name">Tell us your name *</label>
                 <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type first name">
-                    <input id="first-name" class="input100" type="text" name="first-name" placeholder="First name">
+                    <input id="name" class="input100" type="text" name="first-name" placeholder="First name" required>
                     <span class="focus-input100"></span>
                 </div>
                 <div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="Type last name">
-                    <input class="input100" type="text" name="last-name" placeholder="Last name">
+                    <input class="input100" id="name" type="text" name="second-name" placeholder="Last name" required>
                     <span class="focus-input100"></span>
                 </div>
 
                 <label class="label-input100" for="email">Enter your email *</label>
                 <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                    <input id="email" class="input100" type="text" name="email" placeholder="Eg. example@email.com">
+                    <input id="email" class="input100" type="text" name="email" placeholder="Eg. example@email.com" required>
                     <span class="focus-input100"></span>
                 </div>
 
@@ -185,12 +202,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <label class="label-input100" for="message">Message *</label>
                 <div class="wrap-input100 validate-input" data-validate="Message is required">
-                    <textarea id="message" class="input100" name="message" placeholder="Write us a message"></textarea>
+                    <textarea id="message" class="input100" name="message" placeholder="Write us a message" required></textarea>
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="container-contact100-form-btn">
-                    <button class="contact100-form-btn">
+                    <button class="contact100-form-btn" type="submit">
                         Send Message
                     </button>
                 </div>
@@ -251,40 +268,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     <!--footer section-->
-    <footer class="footer " id="contact">
-        <div class="top-footer ">
-            <h2 class="text-center ">
+    <footer class="footer" id="contact">
+        <div class="top-footer">
+            <h2 class="text-center">
                 Equipshare
             </h2>
         </div>
+
+        <!--from here-->
 
         <div class="middle-footer">
             <div class="row">
 
                 <div class="col-md-4 ">
-                    <h3 class="text-uppercase ">navigation</h3>
+                    <h3 class="text-uppercase">navigation</h3>
                     <ul>
                         <li>
-                            <a href="# ">Home</a>
+                            <a href="index.php">Home</a>
                         </li>
                         <li>
-                            <a href="#services ">Services</a>
+                            <a href="services.php">Services</a>
                         </li>
                         <li>
-                            <a href="#about ">About us</a>
+                            <a href="aboutpage.php">About us</a>
                         </li>
                         <li>
-                            <a href="#contact ">Contacts</a>
+                            <a href="#">Contacts</a>
                         </li>
                         <li>
-                            <a href="# ">Login</a>
+                            <a href="login.php">Login</a>
                         </li>
 
                     </ul>
                 </div>
 
                 <div class="col-md-3 ">
-                    <h3 class="text-uppercase ">subscribe</h3>
+                    <h3 class="text-uppercase">subscribe</h3>
                     <form class="form ">
                         <input class="form-control " type="email " placeholder="email@example.com" required>
                         <br />
@@ -363,18 +382,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="vendor/countdowntime/countdowntime.js"></script>
     <!--===============================================================================================-->
     <script src="js/main.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-23581568-13');
-    </script>
+   <script src="js/validate-form.js"></script>
 
 
 </body>
